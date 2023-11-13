@@ -1,11 +1,11 @@
 import { Container } from "./styled";
 import { Header } from "../../components/index";
 
-const Main = () => {
+const Mypage = () => {
   return (
     <Container>
-      <Header tab={1}></Header>
+      <Header tab={3}></Header>
     </Container>
   );
 };
-export default Main;
+export default Mypage;
