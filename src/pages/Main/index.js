@@ -1,11 +1,14 @@
-import { Container } from "./styled";
-import { Header, PageTitle } from "../../components/index";
+import { Container, MainContainer } from "./styled";
+import { Header, PageTitle, Schedule } from "../../components/index";
 
 const Main = () => {
   return (
     <Container>
       <Header tab={1}></Header>
-      <PageTitle blueTItle="OO님의 " title="작업 공간입니다. " />
+      <MainContainer>
+        <PageTitle blueTItle="OO님의 " title="작업 공간입니다. " />
+        <Schedule></Schedule>
+      </MainContainer>
     </Container>
   );
 };
