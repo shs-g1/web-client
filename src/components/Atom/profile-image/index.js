@@ -1,8 +1,9 @@
 // components/Atom/profile-image/index.js
 import React from 'react';
+import { RoundImage } from './styled';
 
-const ProfileImage = ({ imageUrl }) => {
-  return <img src={imageUrl} alt="프로필 사진" />;
+const AtomProfileImage = ({ imageUrl }) => {
+  return <RoundImage src={imageUrl} alt="프로필 사진" />;
 };
 
-export default ProfileImage;
+export default AtomProfileImage;

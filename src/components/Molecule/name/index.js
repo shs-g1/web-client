@@ -2,7 +2,7 @@
 
 import React from "react";
 import AtomName from "../../Atom/name/index.js"
-import MoleculeNameContainer from "./styled.js";
+import { MoleculeNameContainer } from "./styled";
 
 const MolculeName = () => {
     const fullName = '홍박사' // TODO: 저장된 이름 불러오기
