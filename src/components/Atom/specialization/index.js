@@ -1,15 +1,11 @@
 // components/Atom/specialization/index.js
 
-const Specialization = ({ hashtags }) => {
+const AtomSpecialization = ({ text }) => {
     return (
         <div>
-            {hashtags.slice(0, 3).map((tag, index) => ( // hashtag 최대 3개까지
-                <span key={index}>
-                    #{tag}{' '}
-                </span>
-            ))}
+            {text}
         </div>
     )
 }
 
-export default Specialization
+export default AtomSpecialization
