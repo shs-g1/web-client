@@ -1,6 +1,7 @@
 // components/Molecule/profile-section/index.js
 import { useState, useEffect } from "react";
 import AtomProfileSection from "../../Atom/profile-section";
+import AtomDoughnutChart from "../../Atom/portpolio-chart";
 
 const MoleculeProfileSection = () => {
     const [introductionData, setIntroductionData] = useState({
@@ -32,33 +33,34 @@ const MoleculeProfileSection = () => {
     useEffect(() => {
 
         fetch("api/introduction")
-        .then((response) => response.json())
-        .then((data) => setIntroductionData(data))
-        .catch((error) => console.error('Error fetching introduction data:', error));
+            .then((response) => response.json())
+            .then((data) => setIntroductionData(data))
+            .catch((error) => console.error('Error fetching introduction data:', error));
 
         fetch("api/experience")
-        .then((response) => response.json())
-        .then((data) => setExperienceData(data))
-        .catch((error) => console.error('Error fetching experience data:', error));
+            .then((response) => response.json())
+            .then((data) => setExperienceData(data))
+            .catch((error) => console.error('Error fetching experience data:', error));
 
         fetch("api/education")
-        .then((response) => response.json())
-        .then((data) => setEducationData(data))
-        .catch((error) => console.error('Error fetching education data:', error));
+            .then((response) => response.json())
+            .then((data) => setEducationData(data))
+            .catch((error) => console.error('Error fetching education data:', error));
 
         fetch("api/certificate")
-        .then((response) => response.json())
-        .then((data) => setCertificateData(data))
-        .catch((error) => console.error('Error fetching certificate data:', error));
+            .then((response) => response.json())
+            .then((data) => setCertificateData(data))
+            .catch((error) => console.error('Error fetching certificate data:', error));
 
     }, []);
-    
+
     return (
         <div>
             <AtomProfileSection title="자기소개" content={introductionData} />
             <AtomProfileSection title="경력" content={experienceData} />
             <AtomProfileSection title="학력" content={educationData} />
             <AtomProfileSection title="자격증" content={certificateData} />
+            <AtomDoughnutChart title="포트폴리오" />
         </div>
     );
 };
