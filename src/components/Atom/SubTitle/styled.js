@@ -7,4 +7,5 @@ export const Container = styled.div`
   font-weight: 700;
   line-height: normal;
   color: #384a7d;
+  margin-bottom: 20px;
 `;

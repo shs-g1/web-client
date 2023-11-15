@@ -9,3 +9,9 @@ export const Container = styled.div`
 export const MainContainer = styled.div`
   width: 90vw;
 `;
+export const ScheduleContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0;
+`;
