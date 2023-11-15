@@ -3,6 +3,7 @@ import {
   MainContainer,
   ScheduleContainer,
   RightContainer,
+  BackgroundImage,
 } from "./styled";
 import {
   Header,
@@ -17,6 +18,7 @@ const Main = () => {
   return (
     <>
       <Header tab={1}></Header>
+      <BackgroundImage></BackgroundImage>
       <Container>
         <MainContainer>
           <PageTitle blueTItle="OO님의 " title="작업 공간입니다. " />
