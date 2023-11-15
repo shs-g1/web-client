@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ReduceSize = styled.div`
   padding: "0";
   .fc {
-    width: 750px;
+    width: 790px;
     height: 550px;
     padding: 0;
   }

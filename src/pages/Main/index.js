@@ -1,10 +1,16 @@
-import { Container, MainContainer, ScheduleContainer } from "./styled";
+import {
+  Container,
+  MainContainer,
+  ScheduleContainer,
+  RightContainer,
+} from "./styled";
 import {
   Header,
   PageTitle,
   Calendar,
   Todo,
   SubTitle,
+  Incentive,
 } from "../../components/index";
 
 const Main = () => {
@@ -17,14 +23,21 @@ const Main = () => {
           <SubTitle subTitle="일정 관리"></SubTitle>
           <ScheduleContainer>
             <Calendar></Calendar>
-            <Todo
-              events={[
-                {
-                  time: "12:00",
-                  text: "새침이랑 여의도",
-                },
-              ]}
-            ></Todo>
+            <RightContainer>
+              <Todo
+                events={[
+                  {
+                    time: "12:00",
+                    text: "새침이랑 여의도",
+                  },
+                ]}
+              ></Todo>
+              <Incentive
+                title="누적 인센티브"
+                incentiveTitle="지금까지의 인센티브는"
+                incentive="100000원"
+              ></Incentive>
+            </RightContainer>
           </ScheduleContainer>
         </MainContainer>
       </Container>

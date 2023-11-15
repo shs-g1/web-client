@@ -7,11 +7,17 @@ export const Container = styled.div`
   align-items: center;
 `;
 export const MainContainer = styled.div`
-  width: 90vw;
+  width: 85vw;
 `;
 export const ScheduleContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
   padding: 0;
+`;
+
+export const RightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
