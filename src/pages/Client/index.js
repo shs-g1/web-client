@@ -4,7 +4,7 @@ import MolculeName from "../../components/Molecule/name/index.js"
 import AtomProfileImage from "../../components/Atom/profile-image/index.js";
 import MoleculeContact from "../../components/Molecule/contact/index.js";
 import MoleculeCumulativeStats from "../../components/Molecule/cumulativestats/index.js";
-import MoleculeProfileSection from "../../components/Molecule/profile-section/index.js";
+import OrganismProfileSection from "../../components/Organism/profile-section/index.js";
 
 const Client = () => {
 	const imageUrl = process.env.PUBLIC_URL + "/images/sol.jpeg";
@@ -13,10 +13,10 @@ const Client = () => {
 		<Container>
 			<MolculeName />
 			<MoleculeContact />
-			<MoleculeCumulativeStats/>
+			<MoleculeCumulativeStats />
 			<AtomProfileImage imageUrl={imageUrl} />
 			<MolculeSpecialization />
-			<MoleculeProfileSection/>
+			<OrganismProfileSection />
 		</Container>
 	);
 };

@@ -1,9 +1,9 @@
-// components/Molecule/profile-section/index.js
+// components/Organism/profile-section/index.js
 import { useState, useEffect } from "react";
 import AtomProfileSection from "../../Atom/profile-section";
-import AtomDoughnutChart from "../../Atom/portpolio-chart";
+import MoleculePortfolio from "../../Molecule/portfolio";
 
-const MoleculeProfileSection = () => {
+const OrganismProfileSection = () => {
     const [introductionData, setIntroductionData] = useState({
         type: "introduction",
         introduction: "안녕하세요. 저는 개발자입니다.",
@@ -60,9 +60,9 @@ const MoleculeProfileSection = () => {
             <AtomProfileSection title="경력" content={experienceData} />
             <AtomProfileSection title="학력" content={educationData} />
             <AtomProfileSection title="자격증" content={certificateData} />
-            <AtomDoughnutChart title="포트폴리오" />
+            <MoleculePortfolio title="포트폴리오" />
         </div>
     );
 };
 
-export default MoleculeProfileSection;
+export default OrganismProfileSection;
