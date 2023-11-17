@@ -1,14 +1,21 @@
 // components/Molecule/contact/index.js
 
-import React from "react";
+import React, { useEffect, useState} from "react";
 import AtomContact from "../../Atom/contact";
 
 const MoleculeContact = () => {
-	const contacts = {
+	const [contacts, setContacts] = useState({
 		tel: '010-1234-5678',
 		email: '101chimee@gmail.com',
 		current: '신한투자증권 여의도영업부',
-	}
+	});
+
+	useEffect(() => {
+		fetch("api/contacts")
+		.then((response) => response.json())
+		.then((result) => setContacts(result))
+		.catch((error) => console.error("Error fetching data :", error));
+	}, []);
 
 	return (
 		<div>

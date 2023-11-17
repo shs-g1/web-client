@@ -7,7 +7,7 @@ import MoleculeCumulativeStats from "../../components/Molecule/cumulativestats/i
 import OrganismProfileSection from "../../components/Organism/profile-section/index.js";
 
 const Client = () => {
-	const imageUrl = process.env.PUBLIC_URL + "/images/sol.jpeg";
+	const imageUrl = process.env.PUBLIC_URL + "/images/sol.jpeg"; // TODO 컴포넌트 묶기
 
 	return (
 		<Container>
