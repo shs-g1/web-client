@@ -9,3 +9,9 @@ export const Container = styled.div`
 export const MainContainer = styled.div`
   width: 85vw;
 `;
+export const SlideNav = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+`;

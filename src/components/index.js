@@ -5,6 +5,7 @@ export { default as Calendar } from "./Atom/Calendar";
 export { default as TodoListItem } from "./Atom/TodoListItem";
 
 export { default as Table } from "./Atom/table";
+export { default as SlideButton } from "./Atom/slideButton";
 
 export { default as Header } from "./Molecule/Header";
 export { default as Todo } from "./Molecule/Todo";
