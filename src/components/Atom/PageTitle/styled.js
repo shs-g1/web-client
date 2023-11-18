@@ -11,6 +11,7 @@ export const Container = styled.div`
   line-height: normal;
   gap: 10px;
   margin-top: 10px;
+
 `;
 
 export const Blue = styled.div`

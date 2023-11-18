@@ -7,6 +7,7 @@ import {
   BackgroundImage2,
   GreyTitle,
 } from "./styled";
+
 import {
   Header,
   PageTitle,
@@ -109,6 +110,7 @@ const Main = () => {
             <GreyTitle>{tables.length}명의 고객님과 함께하고 있어요.</GreyTitle>
             <Table nodes={tables} header={tableHeader}></Table>
           </BackgroundImage2>
+
         </MainContainer>
       </Container>
     </>
