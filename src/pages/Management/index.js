@@ -1,5 +1,16 @@
-import { Container, MainContainer, SlideNav } from "./styled";
-import { Header, PageTitle, SlideButton } from "../../components/index";
+import {
+  Container,
+  MainContainer,
+  SlideNav,
+  CustomerContainer,
+} from "./styled";
+import {
+  Header,
+  PageTitle,
+  SlideButton,
+  CustomerInfoContainer,
+  CustomerProfitContainer,
+} from "../../components/index";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
@@ -22,7 +33,10 @@ const Management = () => {
       <Header tab={2}></Header>
       <Container>
         <MainContainer>
-          <PageTitle blueTItle={" 고객님의"} title="자산 관리 현황입니다. " />
+          <PageTitle
+            blueTItle={`${rowData.이름[1]}` + " 고객님의"}
+            title="자산 관리 현황입니다. "
+          />
           <SlideNav>
             <SlideButton
               text="고객 자산관리 현황"
@@ -46,6 +60,10 @@ const Management = () => {
               isSelected={selectedTab === 3}
             />
           </SlideNav>
+          <CustomerContainer>
+            <CustomerInfoContainer customer={rowData} />
+            <CustomerProfitContainer></CustomerProfitContainer>
+          </CustomerContainer>
         </MainContainer>
       </Container>
     </>
