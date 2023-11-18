@@ -6,14 +6,18 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
 export const MainContainer = styled.div`
   width: 85vw;
+  position: relative;
 `;
+
 export const ScheduleContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
   padding: 0;
+  margin-bottom: 140px;
 `;
 
 export const RightContainer = styled.div`
@@ -23,12 +27,23 @@ export const RightContainer = styled.div`
 `;
 
 export const BackgroundImage = styled.div`
-  width: 90vw;
-  height: 88vh;
   background-color: #ffffff;
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  z-index: -1;
   border-radius: 20px;
+  padding: 10px 70px 10px 70px;
+  margin-top: 20px;
+`;
+
+export const BackgroundImage2 = styled.div`
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px 70px 70px 70px;
+  margin: 40px 0px;
+`;
+
+export const GreyTitle = styled.div`
+  color: #b5b5c3;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: -10px;
+  margin-bottom: 30px;
 `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 270px;
+  width: 230px;
   height: 60px;
   padding: 30px;
   margin-top: 40px;
@@ -17,7 +17,7 @@ export const Title = styled.div`
 `;
 
 export const IncentiveItem = styled.div`
-  font-size: 16px;
+  font-size: 14px;
   margin-right: 5px;
 `;
 
