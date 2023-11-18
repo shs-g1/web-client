@@ -10,6 +10,8 @@ export const Container = styled.div`
   font-weight: 700;
   line-height: normal;
   gap: 10px;
+  margin-top: 10px;
+
 `;
 
 export const Blue = styled.div`
