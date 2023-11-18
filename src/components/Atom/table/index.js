@@ -7,7 +7,7 @@ const Table = ({ nodes, header }) => {
 
   const handleRowClick = (rowData) => {
     const id = rowData.id;
-    navigate(`/management/${id}`);
+    navigate(`/management/${id}`, { state: { rowData } });
   };
 
   const COLUMNS = header.map((item) => {
