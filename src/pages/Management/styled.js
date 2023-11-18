@@ -17,5 +17,5 @@ export const SlideNav = styled.div`
 `;
 export const CustomerContainer = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 25px;
 `;

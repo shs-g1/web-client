@@ -10,6 +10,7 @@ import {
   SlideButton,
   CustomerInfoContainer,
   CustomerProfitContainer,
+  Portfolio,
 } from "../../components/index";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -64,6 +65,8 @@ const Management = () => {
             <CustomerInfoContainer customer={rowData} />
             <CustomerProfitContainer></CustomerProfitContainer>
           </CustomerContainer>
+
+          <Portfolio></Portfolio>
         </MainContainer>
       </Container>
     </>
