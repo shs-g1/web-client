@@ -7,5 +7,5 @@ export const Container = styled.div`
   align-items: center;
 `;
 export const MainContainer = styled.div`
-  width: 90vw;
+  width: 85vw;
 `;
