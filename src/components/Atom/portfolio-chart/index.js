@@ -25,7 +25,7 @@ const AtomDoughnutChart = ({ title, portfolioData }) => {
 	return (
 		<div>
 			<h2>{title}</h2>
-			<Doughnut data={data} options={options} />;
+			<Doughnut data={data} options={options} />
 		</div>
 	);
 };

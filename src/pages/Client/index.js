@@ -1,21 +1,19 @@
 import { Container } from "../Login/styled";
-import MolculeSpecialization from "../../components/Molecule/specialization/index.js"
 import MolculeName from "../../components/Molecule/name/index.js"
-import AtomProfileImage from "../../components/Atom/profile-image/index.js";
-import MoleculeContact from "../../components/Molecule/contact/index.js";
+import OrganismContact from "../../components/Organism/contact/index.js";
+import MolculeSpecialization from "../../components/Molecule/specialization/index.js"
 import MoleculeCumulativeStats from "../../components/Molecule/cumulativestats/index.js";
 import OrganismProfileSection from "../../components/Organism/profile-section/index.js";
 
+
 const Client = () => {
-	const imageUrl = process.env.PUBLIC_URL + "/images/sol.jpeg"; // TODO 컴포넌트 묶기
 
 	return (
 		<Container>
 			<MolculeName />
-			<MoleculeContact />
-			<MoleculeCumulativeStats />
-			<AtomProfileImage imageUrl={imageUrl} />
+			<OrganismContact />
 			<MolculeSpecialization />
+			<MoleculeCumulativeStats />
 			<OrganismProfileSection />
 		</Container>
 	);
