@@ -1,16 +1,17 @@
-// components/Atom/portfolio-chart/index.js
+// components/Atom/portfolio-chart-modal/index.js
+
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const AtomDoughnutChart = ({ title, portfolioData }) => {
+const AtomPBPortfolioDoughnutChartModal = ({ title, portfolioData }) => {
 
 	const data = {
 		labels: portfolioData.labels,
 		datasets: [{
-			data: portfolioData.ratio,
+			data: portfolioData.ratios,
 			backgroundColor: ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
 		}]
 	};
@@ -30,4 +31,4 @@ const AtomDoughnutChart = ({ title, portfolioData }) => {
 	);
 };
 
-export default AtomDoughnutChart;
+export default AtomPBPortfolioDoughnutChartModal;

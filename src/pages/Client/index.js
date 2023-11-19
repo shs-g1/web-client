@@ -6,6 +6,7 @@ import MoleculeCumulativeStats from "../../components/Molecule/cumulativestats/i
 import OrganismProfileSection from "../../components/Organism/profile-section/index.js";
 
 
+
 const Client = () => {
 
 	return (

@@ -1,7 +1,7 @@
 // components/Organism/profile-section/index.js
 import { useState, useEffect } from "react";
 import AtomProfileSection from "../../Atom/profile-section";
-import MoleculePortfolioForClient from "../../Molecule/portfolio-for-client";
+import MoleculePBPortfolioList from "../../Molecule/pb-portfolio-list";
 
 const OrganismProfileSection = () => {
     const [introductionData, setIntroductionData] = useState({
@@ -60,7 +60,7 @@ const OrganismProfileSection = () => {
             <AtomProfileSection title="경력" content={experienceData} />
             <AtomProfileSection title="학력" content={educationData} />
             <AtomProfileSection title="자격증" content={certificateData} />
-            <MoleculePortfolioForClient title="포트폴리오" />
+            <MoleculePBPortfolioList title="포트폴리오" />
         </div>
     );
 };
