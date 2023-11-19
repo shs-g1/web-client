@@ -7,7 +7,7 @@ const Todo = ({ events }) => {
 
       {events.map((event, index) => (
         <Item>
-          <TodoListItem key={index} time={event.time} text={event.text} />
+          <TodoListItem key={index} time={event.time} text={event.title} />
         </Item>
       ))}
     </Container>

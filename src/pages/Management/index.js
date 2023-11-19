@@ -18,7 +18,7 @@ import {
 } from "../../components/index";
 import { BackgroundImage } from "../Main/styled";
 import { useLocation } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const Management = () => {
   const location = useLocation();
@@ -28,6 +28,11 @@ const Management = () => {
   const customerRef = useRef(null);
   const allAccountRef = useRef(null);
   const balanceRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll to the top when the component mounts or when rowData changes
+    window.scrollTo(0, 0);
+  }, [rowData]);
 
   const handleTabSelect = (tabIndex) => {
     setSelectedTab(tabIndex);
@@ -48,7 +53,6 @@ const Management = () => {
     }
   };
 
-  console.log(rowData);
   if (!rowData) {
     return <p>고객 정보를 찾을 수 없습니다.</p>;
   }
