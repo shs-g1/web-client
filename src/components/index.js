@@ -18,3 +18,4 @@ export { default as Portfolio } from "./Molecule/portfolio";
 export { default as Profit } from "./Molecule/profit";
 export { default as AllAccount } from "./Molecule/allAccount";
 export { default as Balance } from "./Molecule/balance";
+export { default as LoginHeader } from "./Molecule/loginHeader";
