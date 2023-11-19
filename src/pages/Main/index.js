@@ -18,8 +18,21 @@ import {
   Table,
 } from "../../components/index";
 import CustomerImg from "../../assets/images/customerImg.png";
+import { useEffect, useState } from "react";
 
 const Main = () => {
+  const [events, setEvents] = useState([]);
+  const storedEvents = JSON.parse(localStorage.getItem("calendarEvents"));
+  useEffect(() => {
+    const currentDate = new Date().toLocaleDateString();
+    const filteredEvents = storedEvents.filter(
+      (event) => new Date(event.date).toLocaleDateString() === currentDate
+    );
+
+    setEvents(filteredEvents);
+    console.log(filteredEvents);
+  }, []);
+
   const tables = [
     {
       id: "0",
@@ -89,14 +102,7 @@ const Main = () => {
             <ScheduleContainer>
               <Calendar></Calendar>
               <RightContainer>
-                <Todo
-                  events={[
-                    {
-                      time: "12:00",
-                      text: "새침이랑 여의도",
-                    },
-                  ]}
-                ></Todo>
+                <Todo events={events}></Todo>
                 <Incentive
                   title="누적 인센티브"
                   incentiveTitle="누적된 인센티브는"
@@ -110,7 +116,6 @@ const Main = () => {
             <GreyTitle>{tables.length}명의 고객님과 함께하고 있어요.</GreyTitle>
             <Table nodes={tables} header={tableHeader}></Table>
           </BackgroundImage2>
-
         </MainContainer>
       </Container>
     </>

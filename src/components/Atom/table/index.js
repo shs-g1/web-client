@@ -72,8 +72,6 @@ const Table = ({ nodes, header }) => {
   });
 
   const data = { nodes };
-  console.log(data);
-
   return (
     <Style>
       <CompactTable columns={COLUMNS} data={data} />
