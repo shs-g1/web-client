@@ -5,7 +5,7 @@ import AtomDoughnutChart from "../../Atom/portfolio-chart";
 import AtomPortfolioTable from "../../Atom/portfolio-table";
 
 
-const MoleculePortfolio = ({ title }) => {
+const MoleculePortfolioForClient = ({ title }) => {
 	// title = 포트폴리오
 	const [portfolioData, setPortfolioData] = useState({
 		labels: ['국내채권', '해외채권', '해외선물', '국내주식'],
@@ -44,4 +44,5 @@ const MoleculePortfolio = ({ title }) => {
 	);
 };
 
-export default MoleculePortfolio;
+export default MoleculePortfolioForClient;
+
