@@ -1,6 +1,8 @@
 import { Container } from "./styled.js";
 import { SubTitle, Table } from "../../index";
-const AllAccount = () => {
+import React, { forwardRef } from "react";
+
+const AllAccount = forwardRef((props, ref) => {
   const tableHeader = ["계좌번호", "총자산", "출금가능금액"];
   const tables = [
     {
@@ -18,10 +20,11 @@ const AllAccount = () => {
   ];
 
   return (
-    <Container>
+    <Container ref={ref}>
       <SubTitle subTitle="전체 계좌"></SubTitle>
       <Table nodes={tables} header={tableHeader}></Table>
     </Container>
   );
-};
+});
+
 export default AllAccount;

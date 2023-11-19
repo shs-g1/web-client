@@ -18,21 +18,40 @@ import {
 } from "../../components/index";
 import { BackgroundImage } from "../Main/styled";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Management = () => {
   const location = useLocation();
   const rowData = location.state?.rowData;
   const [selectedTab, setSelectedTab] = useState(1);
 
+  const customerRef = useRef(null);
+  const allAccountRef = useRef(null);
+  const balanceRef = useRef(null);
+
+  const handleTabSelect = (tabIndex) => {
+    setSelectedTab(tabIndex);
+
+    switch (tabIndex) {
+      case 1:
+        customerRef.current.scrollIntoView({ behavior: "smooth" });
+        break;
+      case 2:
+        allAccountRef.current.scrollIntoView({ behavior: "smooth" });
+        break;
+      case 3:
+        balanceRef.current.scrollIntoView({ behavior: "smooth" });
+        break;
+
+      default:
+        break;
+    }
+  };
+
   console.log(rowData);
   if (!rowData) {
     return <p>고객 정보를 찾을 수 없습니다.</p>;
   }
-
-  const handleTabSelect = (tabIndex) => {
-    setSelectedTab(tabIndex);
-  };
 
   return (
     <>
@@ -53,7 +72,7 @@ const Management = () => {
                 isSelected={selectedTab === 1}
               />
               <SlideButton
-                text="수익률"
+                text="전체 계좌"
                 onSelect={() => {
                   handleTabSelect(2);
                 }}
@@ -72,14 +91,13 @@ const Management = () => {
               <CustomerProfitContainer></CustomerProfitContainer>
             </CustomerContainer>
 
-            <PortfolioContainer>
+            <PortfolioContainer ref={customerRef}>
               <Portfolio></Portfolio>
               <Profit></Profit>
             </PortfolioContainer>
 
-            <AllAccount></AllAccount>
-
-            <Balance></Balance>
+            <AllAccount ref={allAccountRef}></AllAccount>
+            <Balance ref={balanceRef}></Balance>
           </BackgroundImage>
         </MainContainer>
       </Container>

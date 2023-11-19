@@ -1,6 +1,7 @@
 import { Container, MiniTitle, Margin } from "./styled";
 import { SubTitle, Table } from "../../index";
-const Balance = () => {
+import React, { forwardRef } from "react";
+const Balance = forwardRef((props, ref) => {
   const tableHeader = ["종목코드", "종목명", "투자수량", "평가금액"];
   const jusikData = [
     {
@@ -39,7 +40,7 @@ const Balance = () => {
     },
   ];
   return (
-    <Container>
+    <Container ref={ref}>
       <SubTitle subTitle="잔고/체결내역"></SubTitle>
       <MiniTitle>주식</MiniTitle>
       <Table nodes={jusikData} header={tableHeader}></Table>
@@ -52,5 +53,5 @@ const Balance = () => {
       <Table nodes={pasaengData} header={tableHeader}></Table>
     </Container>
   );
-};
+});
 export default Balance;
