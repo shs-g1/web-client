@@ -5,6 +5,6 @@ export const Container = styled.div`
   padding: 20px 0px;
 `;
 
-export const Reduce = styled.div`
-  width: 525px;
+export const Text = styled.div`
+  font-size: 23px;
 `;

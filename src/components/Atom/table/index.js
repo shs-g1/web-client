@@ -1,5 +1,14 @@
 import { CompactTable } from "@table-library/react-table-library/compact";
-import { Style, NameContainer, Image, Name, Red, Blue } from "./styled";
+import {
+  Style,
+  NameContainer,
+  Image,
+  Name,
+  Red,
+  Blue,
+  AccountContainer,
+  Button,
+} from "./styled";
 import { useNavigate } from "react-router-dom";
 
 const Table = ({ nodes, header }) => {
@@ -34,14 +43,27 @@ const Table = ({ nodes, header }) => {
               {rowData[item]}%
             </Blue>
           );
-        } else if (item.includes("자산")) {
+        } else if (item.includes("자산") || item.includes("금액")) {
           return (
             <Name onClick={() => handleRowClick(rowData)}>
-              {" "}
               {rowData[item]}원
             </Name>
           );
+        } else if (item === "계좌번호") {
+          return (
+            <AccountContainer>
+              <Button>{rowData[item][0]}</Button>
+              <Name>
+                {`${rowData[item][1].slice(0, 3)}-${rowData[item][1].slice(
+                  3,
+                  5
+                )}-${rowData[item][1].slice(5)}`}
+                {` ${rowData[item][2]} `}
+              </Name>
+            </AccountContainer>
+          );
         }
+
         return (
           <Name onClick={() => handleRowClick(rowData)}>{rowData[item]}</Name>
         );
@@ -50,6 +72,7 @@ const Table = ({ nodes, header }) => {
   });
 
   const data = { nodes };
+  console.log(data);
 
   return (
     <Style>

@@ -3,6 +3,7 @@ import {
   MainContainer,
   SlideNav,
   CustomerContainer,
+  PortfolioContainer,
 } from "./styled";
 import {
   Header,
@@ -11,7 +12,11 @@ import {
   CustomerInfoContainer,
   CustomerProfitContainer,
   Portfolio,
+  Profit,
+  AllAccount,
+  Balance,
 } from "../../components/index";
+import { BackgroundImage } from "../Main/styled";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
@@ -34,39 +39,48 @@ const Management = () => {
       <Header tab={2}></Header>
       <Container>
         <MainContainer>
-          <PageTitle
-            blueTItle={`${rowData.이름[1]}` + " 고객님의"}
-            title="자산 관리 현황입니다. "
-          />
-          <SlideNav>
-            <SlideButton
-              text="고객 자산관리 현황"
-              onSelect={() => {
-                handleTabSelect(1);
-              }}
-              isSelected={selectedTab === 1}
+          <BackgroundImage>
+            <PageTitle
+              blueTItle={`${rowData.이름[1]}` + " 고객님의"}
+              title="자산 관리 현황입니다. "
             />
-            <SlideButton
-              text="수익률"
-              onSelect={() => {
-                handleTabSelect(2);
-              }}
-              isSelected={selectedTab === 2}
-            />
-            <SlideButton
-              text="잔고/체결내역"
-              onSelect={() => {
-                handleTabSelect(3);
-              }}
-              isSelected={selectedTab === 3}
-            />
-          </SlideNav>
-          <CustomerContainer>
-            <CustomerInfoContainer customer={rowData} />
-            <CustomerProfitContainer></CustomerProfitContainer>
-          </CustomerContainer>
+            <SlideNav>
+              <SlideButton
+                text="고객 자산관리 현황"
+                onSelect={() => {
+                  handleTabSelect(1);
+                }}
+                isSelected={selectedTab === 1}
+              />
+              <SlideButton
+                text="수익률"
+                onSelect={() => {
+                  handleTabSelect(2);
+                }}
+                isSelected={selectedTab === 2}
+              />
+              <SlideButton
+                text="잔고/체결내역"
+                onSelect={() => {
+                  handleTabSelect(3);
+                }}
+                isSelected={selectedTab === 3}
+              />
+            </SlideNav>
+            <CustomerContainer>
+              <CustomerInfoContainer customer={rowData} />
+              <CustomerProfitContainer></CustomerProfitContainer>
+            </CustomerContainer>
 
-          <Portfolio></Portfolio>
+            <PortfolioContainer>
+              <Portfolio></Portfolio>
+              <Profit></Profit>
+            </PortfolioContainer>
+
+            <AllAccount></AllAccount>
+
+            <Balance></Balance>
+          </BackgroundImage>
         </MainContainer>
       </Container>
     </>
