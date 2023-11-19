@@ -39,8 +39,8 @@ export const NameContainer = styled.div`
 export const Image = styled.img`
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 20px;
+  margin-left: -20px;
 `;
 
 export const Name = styled.div`

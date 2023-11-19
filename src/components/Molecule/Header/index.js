@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Tab } from "../../index";
 import { Container, TabNav, UserBox, Text, Image } from "./styled";
+import pbProfile from "../../../assets/images/pbProfile.png";
 
 const Header = ({ tab }) => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ const Header = ({ tab }) => {
       </TabNav>
       <UserBox>
         <Text>OO님 안녕하세요!</Text>
-        <Image></Image>
+        <Image src={pbProfile}></Image>
       </UserBox>
     </Container>
   );
