@@ -23,17 +23,16 @@ export const UserBox = styled.div`
   align-items: center;
 `;
 
-export const Image = styled.div`
+export const Image = styled.img`
   width: 40px;
   height: 40px;
-  background-color: tomato;
-  border-radius: 50%;
   margin-bottom: 13px;
-  margin-right: 5px;
+  margin-right: 15px;
 `;
 
 export const Text = styled.div`
   color: #ffffff;
   margin-bottom: 10px;
   font-size: 16px;
+  margin-right: -5px;
 `;
