@@ -15,9 +15,9 @@ const MoleculeEducationInput = ({ onUpdate, attribute }) => {
 	]);
 
 	const handleInputChange = (index, attribute, newValue) => {	// 각 입력창(학교, 부서, 시작 날짜, 종료 날짜)에 입력 시 호출
-		const updatedCareerHistory = [...educationHistory];
-		updatedCareerHistory[index][attribute] = newValue;
-		setEducationHistory(updatedCareerHistory);	// careerHistory 상태 업데이트
+		const updatedEducationoHistory = [...educationHistory];
+		updatedEducationoHistory[index][attribute] = newValue;
+		setEducationHistory(updatedEducationoHistory);	// EducationHistory 상태 업데이트
 	};
 
 	const handleSaveEducation = () => {	// 교육 저장하기 버튼 누르면 호출, 외부 컴포넌트로 educationHistory 넘겨준다.
@@ -29,9 +29,9 @@ const MoleculeEducationInput = ({ onUpdate, attribute }) => {
 	};
 
 	const handleRemoveEducation = (index) => {	// Remove 버튼을 누르면 호출
-		const updatedCareerHistory = [...educationHistory];
-		updatedCareerHistory.splice(index, 1);
-		setEducationHistory(updatedCareerHistory);
+		const updatedEducationHistory = [...educationHistory];
+		updatedEducationHistory.splice(index, 1);
+		setEducationHistory(updatedEducationHistory);
 	};
 
 	return (
