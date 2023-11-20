@@ -28,7 +28,7 @@ const Header = ({ tab }) => {
           Text="고객 관리"
           onSelect={() => {
             handleTabSelect(2);
-            navigate("/management");
+            navigate("/management/1");
           }}
           isSelected={selectedTab === 2}
         />

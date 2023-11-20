@@ -31,6 +31,7 @@ export const BackgroundImage = styled.div`
   border-radius: 20px;
   padding: 10px 70px 5px 70px;
   margin-top: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 export const BackgroundImage2 = styled.div`
@@ -38,6 +39,7 @@ export const BackgroundImage2 = styled.div`
   border-radius: 20px;
   padding: 30px 70px 70px 70px;
   margin: 40px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 export const GreyTitle = styled.div`
