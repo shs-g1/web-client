@@ -19,18 +19,39 @@ import {
 } from "../../components/index";
 import CustomerImg from "../../assets/images/customerImg.png";
 import { useEffect, useState } from "react";
+import { instance } from "../../apis";
 
 const Main = () => {
   const [events, setEvents] = useState([]);
-  const storedEvents = JSON.parse(localStorage.getItem("calendarEvents"));
-  useEffect(() => {
-    const currentDate = new Date().toLocaleDateString();
-    const filteredEvents = storedEvents.filter(
-      (event) => new Date(event.date).toLocaleDateString() === currentDate
-    );
 
-    setEvents(filteredEvents);
-    console.log(filteredEvents);
+  const storedEvents = JSON.parse(localStorage.getItem("calendarEvents"));
+
+  useEffect(() => {
+    if (storedEvents) {
+      const currentDate = new Date().toLocaleDateString();
+      const filteredEvents = storedEvents.filter(
+        (event) => new Date(event.date).toLocaleDateString() === currentDate
+      );
+
+      setEvents(filteredEvents);
+    }
+  }, []);
+
+  const [apiData, setApiData] = useState([]);
+  const getListApi = async () => {
+    try {
+      const response = await instance.get("/workspace/");
+      console.log(response.data, "responseData");
+      setApiData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(apiData.calendarResponseDto, "apiData");
+
+  useEffect(() => {
+    getListApi();
   }, []);
 
   const tables = [

@@ -10,7 +10,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const LoginContainer = styled.div`
+export const LoginContainer = styled.form`
   width: 643px;
   height: 379px;
   background-color: #ffffff;
@@ -70,4 +70,11 @@ export const LoginButton = styled.button`
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+`;
+
+export const Error = styled.div`
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  font-family: Poppins;
 `;
