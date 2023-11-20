@@ -1,9 +1,17 @@
 // components/Atom/name/index.js
-import React from 'react';
+import React from "react";
+import styled from "styled-components";
 
+const Blue = styled.span`
+  color: #384a7d;
+`;
+
+const Text = styled.span``;
 const AtomName = ({ fullName }) => {
   return (
-  <h1>{fullName}</h1>
+    <Text>
+      <Blue>{fullName}</Blue>입니다.
+    </Text>
   ); // TODO: Name 표시 크기는?
 };
 
