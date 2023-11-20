@@ -1,24 +1,23 @@
 // components/Atom/cumulativestats/index.js
-
 import React from "react";
-
-const AtomCumulativeStats = ({ customers, totalAmount, profitMargin}) => {
-    return (
-        <div>
-            <p>
-                <span>누적 고객</span>
-                <span> {customers}명</span>
-            </p>
-            <p>
-                <span>누적 금액</span>
-                <span> {totalAmount}원</span>
-            </p>
-            <p>
-                <span>누적 수익률</span>
-                <span> {profitMargin}%</span>
-            </p>
-        </div>
-    );
-}
+import { Container, SmallContainer, Text, Blue } from "./styled";
+const AtomCumulativeStats = ({ customers, totalAmount, profitMargin }) => {
+  return (
+    <Container>
+      <SmallContainer>
+        <Text>누적 고객</Text>
+        <Blue> {customers}명</Blue>
+      </SmallContainer>
+      <SmallContainer>
+        <Text>누적 금액</Text>
+        <Blue> {totalAmount}원</Blue>
+      </SmallContainer>
+      <SmallContainer>
+        <Text>누적 수익률</Text>
+        <Blue> {profitMargin}%</Blue>
+      </SmallContainer>
+    </Container>
+  );
+};
 
 export default AtomCumulativeStats;

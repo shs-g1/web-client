@@ -1,8 +1,8 @@
 import { Container, Image } from "./styled";
 import HeaderImage from "../../../assets/images/headerImg.png";
-const LoginHeader = () => {
+const LoginHeader = ({ width }) => {
   return (
-    <Container>
+    <Container width={width}>
       <Image src={HeaderImage} alt="header" />
     </Container>
   );
