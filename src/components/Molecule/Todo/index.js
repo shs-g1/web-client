@@ -1,15 +1,23 @@
 import { TodoListItem } from "../../index";
-import { Container, Item, ListHeader } from "./styled";
+import { Container, Item, ListHeader, Text } from "./styled";
 const Todo = ({ events }) => {
   return (
     <Container>
       <ListHeader>오늘 일정</ListHeader>
 
-      {events.map((event, index) => (
-        <Item>
-          <TodoListItem key={index} time={event.time} text={event.title} />
-        </Item>
-      ))}
+      {events ? (
+        events.map((event, index) => (
+          <Item>
+            <TodoListItem
+              key={index}
+              time={event.time?.substring(0, 5)}
+              text={event.title}
+            />
+          </Item>
+        ))
+      ) : (
+        <Text> 오늘은 일정이 없습니다.</Text>
+      )}
     </Container>
   );
 };

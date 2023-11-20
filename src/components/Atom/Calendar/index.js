@@ -12,57 +12,93 @@ import {
   AddButton,
   TimePicker,
 } from "./styled";
+import { instance } from "../../../apis";
 
 const Calendar = () => {
   const calendarRef = useRef(null);
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [apiData, setApiData] = useState({
+    date: "",
+    time: "",
+    title: "",
+  });
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedTime, setSelectedTime] = useState("");
-  const [eventDescription, setEventDescription] = useState("");
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([
+    {
+      date: "",
+      time: "",
+      title: "",
+    },
+  ]);
 
   useEffect(() => {
-    const storedEvents =
-      JSON.parse(localStorage.getItem("calendarEvents")) || [];
-    setEvents(storedEvents);
+    getApiList();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("calendarEvents", JSON.stringify(events));
-  }, [events]);
+  /*캘린더*/
+  const getApiList = async () => {
+    try {
+      const pbId = localStorage.getItem("pbId");
+      const response = await instance.get(`/workspace?pbId=${pbId}`);
+      console.log(response.data, "responseData");
+      setEvents(response.data.calendarResponseDto);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  /*일정 추가 */
+  const handleAddEvent = async () => {
+    try {
+      const pbId = localStorage.getItem("pbId");
+      console.log(apiData, "apiData");
+      const response = await instance.post(
+        `/workspace/calendar?pbId=${pbId}`,
+        {
+          date: apiData.date,
+          title: apiData.title,
+          time: apiData.time,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+
+      //첫 이벤트 두번 post 방지
+      if (events.length === 0) {
+        setEvents([response.data]);
+      } else {
+        setEvents((prevEvents) => [...prevEvents, response.data]);
+      }
+
+      console.log(apiData, "after post");
+
+      setApiData({
+        date: "",
+        time: "",
+        title: "",
+      });
+
+      closeModal();
+    } catch (error) {
+      console.error("할일 추가 실패:", error.response.reason);
+    }
+  };
 
   const handleDateClick = (eventInfo) => {
-    setSelectedDate(eventInfo.dateStr);
-    console.log(eventInfo);
+    setApiData({ ...apiData, date: eventInfo.dateStr });
     setIsModalOpen(true);
   };
 
   const handleTimeChange = (e) => {
-    const selectedTime = e.target.value;
-    console.log("Selected Time:", selectedTime);
-    setSelectedTime(selectedTime);
+    setApiData({ ...apiData, time: e.target.value });
+  };
+
+  const handleInputChange = (e) => {
+    setApiData({ ...apiData, title: e.target.value });
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-  };
-
-  const handleInputChange = (e) => {
-    setEventDescription(e.target.value);
-  };
-
-  const handleAddEvent = () => {
-    const newEvent = {
-      title: eventDescription,
-      date: selectedDate,
-      time: selectedTime,
-      allDay: true,
-    };
-    setEvents([...events, newEvent]);
-    setSelectedTime("");
-    setEventDescription("");
-    closeModal();
-    console.log(newEvent);
   };
 
   return (
@@ -106,23 +142,17 @@ const Calendar = () => {
           },
         }}
       >
-        {selectedDate && (
+        {apiData.date && (
           <ButtonContainer>
-            <ModalText>{selectedDate.toLocaleString()}</ModalText>
+            <ModalText>{apiData.date.toLocaleString()}</ModalText>
             <TimePicker onChange={handleTimeChange}></TimePicker>
           </ButtonContainer>
         )}
         <TextArea
-          value={eventDescription}
+          value={apiData.title}
           onChange={handleInputChange}
           rows={10}
           placeholder="일정을 입력하세요"
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              e.preventDefault();
-              handleAddEvent();
-            }
-          }}
         ></TextArea>
 
         <ButtonContainer>

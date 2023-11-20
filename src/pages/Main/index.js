@@ -17,90 +17,49 @@ import {
   Incentive,
   Table,
 } from "../../components/index";
+
 import CustomerImg from "../../assets/images/customerImg.png";
 import { useEffect, useState } from "react";
 import { instance } from "../../apis";
 
 const Main = () => {
   const [events, setEvents] = useState([]);
-
-  const storedEvents = JSON.parse(localStorage.getItem("calendarEvents"));
-
-  useEffect(() => {
-    if (storedEvents) {
-      const currentDate = new Date().toLocaleDateString();
-      const filteredEvents = storedEvents.filter(
-        (event) => new Date(event.date).toLocaleDateString() === currentDate
-      );
-
-      setEvents(filteredEvents);
-    }
-  }, []);
-
-  const [apiData, setApiData] = useState([]);
-  const getListApi = async () => {
+  const [todayEvents, setTodayEvents] = useState([]);
+  const [tables, setTables] = useState([]);
+  const [incentive, setIncentive] = useState(0);
+  /*event 받기 */
+  const getApiList = async () => {
     try {
-      const response = await instance.get("/workspace/");
+      const pbId = localStorage.getItem("pbId");
+      const response = await instance.get(`/workspace?pbId=${pbId}`);
       console.log(response.data, "responseData");
-      setApiData(response.data);
+      setEvents(response.data.calendarResponseDto);
+      setTables(response.data.clientResponseDto);
+      setIncentive(response.data.incentive);
     } catch (error) {
       console.log(error);
     }
   };
 
-  console.log(apiData.calendarResponseDto, "apiData");
-
   useEffect(() => {
-    getListApi();
+    getApiList();
   }, []);
 
-  const tables = [
-    {
-      id: "0",
-      이름: [CustomerImg, "고나형"],
-      전화번호: "010-1234-5678",
-      이메일: "123@gmail.com",
-      자산총액: "6510293",
-      목표수익률: "15",
-      현재수익률: "-15",
-    },
-    {
-      id: "1",
-      이름: [CustomerImg, "나영현"],
-      전화번호: "010-1234-5678",
-      이메일: "123@gmail.com",
-      자산총액: "6510293",
-      목표수익률: "15",
-      현재수익률: "15",
-    },
-    {
-      id: "2",
-      이름: [CustomerImg, "안정민"],
-      전화번호: "010-1234-5678",
-      이메일: "123@gmail.com",
-      자산총액: "6510293",
-      목표수익률: "15",
-      현재수익률: "15",
-    },
-    {
-      id: "3",
-      이름: [CustomerImg, "이재연"],
-      전화번호: "010-1234-5678",
-      이메일: "123@gmail.com",
-      자산총액: "6510293",
-      목표수익률: "15",
-      현재수익률: "15",
-    },
-    {
-      id: "4",
-      이름: [CustomerImg, "홍보영"],
-      전화번호: "010-1234-5678",
-      이메일: "123@gmail.com",
-      자산총액: "6510293",
-      목표수익률: "15",
-      현재수익률: "15",
-    },
-  ];
+  useEffect(() => {
+    /*오늘 일정 필터링 */
+    if (events.length > 0) {
+      console.log(events, "events");
+      const currentDate = new Date().toLocaleDateString();
+      const filteredEvents = events.filter(
+        (event) => new Date(event.date).toLocaleDateString() === currentDate
+      );
+
+      setTodayEvents(filteredEvents);
+      console.log(filteredEvents, "todayEvents");
+    } else {
+      console.log("events is null");
+    }
+  }, [events]);
 
   const tableHeader = [
     "이름",
@@ -123,11 +82,11 @@ const Main = () => {
             <ScheduleContainer>
               <Calendar></Calendar>
               <RightContainer>
-                <Todo events={events}></Todo>
+                <Todo events={todayEvents}></Todo>
                 <Incentive
                   title="누적 인센티브"
                   incentiveTitle="누적된 인센티브는"
-                  incentive="100000원"
+                  incentive={incentive}
                 ></Incentive>
               </RightContainer>
             </ScheduleContainer>

@@ -9,9 +9,9 @@ import {
   Container,
 } from "./styled";
 import { LoginHeader } from "../../components/index";
-import { instance } from "../../apis";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { instance } from "../../apis";
 
 const Login = () => {
   const [userId, setUserId] = useState("");
@@ -43,11 +43,14 @@ const Login = () => {
         }
       );
       // 로그인 성공 처리
-      alert("로그인 성공:", response.data);
+
+      localStorage.setItem("pbId", response.data.payload.login.pbId);
+
+      alert("로그인 성공", response.data.payload.login.pbId);
       navigate("/main");
     } catch (error) {
       setSuccessLogin(false);
-      console.error("로그인 실패:", error.response.data.reason);
+      console.error("로그인 실패:", error.error);
     }
   };
 

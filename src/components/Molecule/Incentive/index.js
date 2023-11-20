@@ -12,7 +12,7 @@ const Incentive = ({ title, incentiveTitle, incentive }) => {
       <Title>{title}</Title>
       <IncentiveContainer>
         <IncentiveItem>{incentiveTitle}</IncentiveItem>
-        <IncentiveBlue>{incentive}</IncentiveBlue>
+        <IncentiveBlue>{incentive}원</IncentiveBlue>
         <IncentiveItem>입니다.</IncentiveItem>
       </IncentiveContainer>
     </Container>
