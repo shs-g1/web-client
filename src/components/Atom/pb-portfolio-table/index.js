@@ -2,20 +2,7 @@
 // 고객에게 보여지는 페이지에서 바로 노출되는 포트폴리오 3개의 리스트
 
 import React from "react";
-import styled from "styled-components";
-
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0 25px;
-`;
-
-const Title = styled.div`
-  font-family: Poppins;
-  font-size: 26px;
-  font-weight: 600;
-  margin: 10px 0px;
-`;
+import { Container, Title, Table, Thead, Tbody, Tr, Th, Td } from "./styled";
 
 const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
   const tableData = {
@@ -30,33 +17,34 @@ const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
   return (
     <Container>
       <Title>{title}</Title>
-      <table>
-        <thead>
-          <tr>
-            <th>이름</th>
-            <th>투자원금</th>
-            <th>투자수익</th>
-          </tr>
-          <tr>
-            <th>누적수익률</th>
-            <th>MDD</th>
-            <th>기간</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tableData.portfolioNames.map((portfolioName, index) => (
-            <tr key={index} onClick={() => onRowClick(tableData, index)}>
-              <td>{portfolioName}</td>
-              <td>{tableData.principals[index]}원</td>
-              <td>{tableData.returns[index]}원</td>
-              <td>{tableData.cumulativeRORs[index]}%</td>
-              <td>{tableData.MDDs[index]}%</td>
-              <td>{tableData.durations[index]}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      ;
+      <Table>
+        <Thead>
+          <Tr>
+            <Th>이름</Th>
+            <Th>투자 원금</Th>
+            <Th>투자 수익</Th>
+          </Tr>
+          <Tr>
+            <Th>누적 수익률</Th>
+            <Th>MDD</Th>
+            <Th>기간</Th>
+          </Tr>
+        </Thead>
+        {tableData.portfolioNames.map((portfolioName, index) => (
+          <Tbody>
+            <Tr key={index} onClick={() => onRowClick(tableData, index)}>
+              <Td>{portfolioName}</Td>
+              <Td>{tableData.principals[index]}원</Td>
+              <Td>{tableData.returns[index]}원</Td>
+            </Tr>
+            <Tr>
+              <Td>{tableData.cumulativeRORs[index]}%</Td>
+              <Td>{tableData.MDDs[index]}%</Td>
+              <Td>{tableData.durations[index]}</Td>
+            </Tr>
+          </Tbody>
+        ))}
+      </Table>
     </Container>
   );
 };
