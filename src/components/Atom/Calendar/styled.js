@@ -45,6 +45,7 @@ export const ReduceSize = styled.div`
     margin-bottom: 2px;
     background-color: #384a7d;
     border: none;
+    color: white;
   }
 `;
 

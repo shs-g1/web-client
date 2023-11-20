@@ -23,3 +23,7 @@ export const ListHeader = styled.div`
 export const Item = styled.div`
   padding: 5px;
 `;
+
+export const Text = styled.div`
+  font-size: 16px;
+`;

@@ -15,14 +15,14 @@ const CustomerInfoContainer = ({ customer }) => {
   return (
     <Container>
       <LeftContainer>
-        <CustomerImage src={customer.이름[0]}></CustomerImage>
+        {/* <CustomerImage src={customer.name[0]}></CustomerImage> */}
       </LeftContainer>
       <RightContainer>
         <NameContainer>
-          <Name>{customer.이름[1]}</Name>
+          {/* <Name>{customer.name[0]}</Name> */}
           <TextContainer>
-            <Text>{customer.전화번호}</Text>
-            <Text>{customer.이메일}</Text>
+            <Text>{customer.phone}</Text>
+            <Text>{customer.email}</Text>
           </TextContainer>
         </NameContainer>
         <ButtonContainer>
