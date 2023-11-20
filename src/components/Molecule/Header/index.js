@@ -20,7 +20,7 @@ const Header = ({ tab }) => {
           Text="작업 공간"
           onSelect={() => {
             handleTabSelect(1);
-            navigate("/");
+            navigate("/main");
           }}
           isSelected={selectedTab === 1}
         />
