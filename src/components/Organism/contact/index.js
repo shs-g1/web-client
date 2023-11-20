@@ -3,10 +3,11 @@
 import React, { useEffect, useState } from "react";
 import MoleculeContact from "../../Molecule/contact";
 import AtomProfileImage from "../../Atom/profile-image";
+import defaultImage from '../../../assets/images/sol.jpeg';
 
 const OrganismContact = () => {
 
-	const [imageUrl, setImageUrl] = useState(process.env.PUBLIC_URL + "/images/sol.jpeg");
+	const [imageUrl, setImageUrl] = useState(defaultImage);
 
 	useEffect(() => {
 		fetch("api/imageUrl")
