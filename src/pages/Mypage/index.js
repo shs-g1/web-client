@@ -19,8 +19,8 @@ const Mypage = () => {
     email: '',
     careerList: [],
     educationList: [],
-    specialization: [],
-    certificates: [],
+    specializationList: [],
+    certificateList: [],
     introduction: ''
   });
 
@@ -42,6 +42,7 @@ const Mypage = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': 'http://localhost:3000',
         },
         body: JSON.stringify(formState),
       });
@@ -61,12 +62,12 @@ const Mypage = () => {
       <Header tab={3}></Header>
       <AtomPlainInput title={'이름'} placeholder={'이름'} onUpdate={handleInputChange} attribute={'name'} />
       <AtomPlainInput title={'전화번호'} placeholder={'전화번호'} onUpdate={handleInputChange} attribute={'phoneNumber'} />
-      <AtomImageInput onUpdate={handleInputChange} attribute={'imageUrl'} />
       <AtomEmailInput onUpdate={handleInputChange} attribute={'email'} />
+      <AtomImageInput onUpdate={handleInputChange} attribute={'imageUrl'} />
       <MoleculeCareerInput onUpdate={handleInputChange} attribute={'careerList'} />
       <MoleculeEducationInput onUpdate={handleInputChange} attribute={'educationList'} />
-      <AtomSpecializationInput onUpdate={handleInputChange} attribute={'specialization'} />
-      <MoleculeCertificateInput onUpdate={handleInputChange} attribute={'certificates'} />
+      <AtomSpecializationInput onUpdate={handleInputChange} attribute={'specializationList'} />
+      <MoleculeCertificateInput onUpdate={handleInputChange} attribute={'certificateList'} />
       <AtomIntroductionInput onUpdate={handleInputChange} attribute={'introduction'} />
       <button onClick={handleFormSubmit}>수정하기</button>
     </Container>
