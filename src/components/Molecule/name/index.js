@@ -1,20 +1,10 @@
 // components/Molecule/name/index.js
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AtomName from "../../Atom/name/index.js";
 import { MoleculeNameContainer, Text } from "./styled";
 
-const MolculeName = () => {
-  const [fullName, setFullname] = useState("SOL");
-
-  useEffect(() => {
-    fetch("api/name") // TODO : api 호출
-      .then((response) => response.json())
-      .then((result) => setFullname(result))
-      .catch((error) =>
-        console.error("Error fetching introduction data:", error)
-      );
-  }, []);
+const MolculeName = ({ fullName }) => {
 
   // TODO: 고객문구 지속적으로 변경하는 함수 추가
   return (

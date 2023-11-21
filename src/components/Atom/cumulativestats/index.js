@@ -1,7 +1,10 @@
 // components/Atom/cumulativestats/index.js
 import React from "react";
 import { Container, SmallContainer, Text, Blue } from "./styled";
-const AtomCumulativeStats = ({ customers, totalAmount, profitMargin }) => {
+const AtomCumulativeStats = (props) => {
+
+  const { customers, totalAmount, profitMargin } = props.cumulativeStats;
+
   return (
     <Container>
       <SmallContainer>
@@ -10,7 +13,7 @@ const AtomCumulativeStats = ({ customers, totalAmount, profitMargin }) => {
       </SmallContainer>
       <SmallContainer>
         <Text>누적 금액</Text>
-        <Blue> {totalAmount}원</Blue>
+        <Blue> {totalAmount.toLocaleString()}원</Blue>
       </SmallContainer>
       <SmallContainer>
         <Text>누적 수익률</Text>

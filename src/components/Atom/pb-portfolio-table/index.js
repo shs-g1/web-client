@@ -9,10 +9,40 @@ const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
     portfolioNames: content.portfolioNames, // 이름
     principals: content.principals, // 투자원금
     returns: content.returns, // 투자수익률
-    MDDs: content.MDDs, // MDD
     cumulativeRORs: content.cumulativeRORs, // 누적수익률
     durations: content.durations, // 기간
   };
+
+  //   {
+  //     "portfolioID": [
+  //         6
+  //     ],
+  //     "portfolioNames": [
+  //         "자문사 펀드1",
+  //         "자문사 펀드2",
+  //         "자문사 펀드3"
+  //     ],
+  //     "principals": [
+  //         1000000,
+  //         1000000,
+  //         1000000
+  //     ],
+  //     "returns": [
+  //         1602346,
+  //         1602346,
+  //         1602346
+  //     ],
+  //     "cumulativeRORs": [
+  //         1025.25,
+  //         1025.25,
+  //         200
+  //     ],
+  //     "durations": [
+  //         "2013.10.11~2023.05.23",
+  //         "2013.10.11~2023.05.23",
+  //         "2013.10.11~2023.05.23"
+  //     ]
+  // }
 
   return (
     <Container>
@@ -26,7 +56,6 @@ const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
           </Tr>
           <Tr>
             <Th>누적 수익률</Th>
-            <Th>MDD</Th>
             <Th>기간</Th>
           </Tr>
         </Thead>
@@ -39,7 +68,6 @@ const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
             </Tr>
             <Tr>
               <Td>{tableData.cumulativeRORs[index]}%</Td>
-              <Td>{tableData.MDDs[index]}%</Td>
               <Td>{tableData.durations[index]}</Td>
             </Tr>
           </Tbody>

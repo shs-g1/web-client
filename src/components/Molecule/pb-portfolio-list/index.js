@@ -4,16 +4,7 @@ import { useState, useEffect } from "react";
 import AtomPBPortfolioTable from "../../Atom/pb-portfolio-table";
 import MoleculePBPortfolioModal from "../pb-portfolio-modal";
 
-const MoleculePBPortfolioList = ({ title }) => {
-
-	const [portfolioListData, setPortfolioListData] = useState({
-		portfolioNames: ['자문사 펀드1', '자문사 펀드2', '자문사 펀드3'],	// 이름
-		principals: [1000000, 1000000, 1000000],	// 투자원금
-		returns: [1602346, 1602346, 1602346],	// 투자수익
-		MDDs: [-11, -11, -11],	// MDD , fetch 안 함
-		cumulativeRORs: [1025.25, 1025.25, 200],	// 누적수익률
-		durations: ['2013.10.11~2023.05.23', '2013.10.11~2023.05.23', '2013.10.11~2023.05.23']	// 기간
-	});
+const MoleculePBPortfolioList = (props) => {
 
 	const [selectedRow, setSelectedRow] = useState(null);
 
@@ -21,19 +12,11 @@ const MoleculePBPortfolioList = ({ title }) => {
 		setSelectedRow({ data, index });
 	};
 
-	useEffect(() => {
-		// TODO: fetch로 포트폴리오 리스트 불러오기
-		fetch("api/portfolios/")
-			.then((response) => response.json())
-			.then((result) => setPortfolioListData(result))
-			.catch((error) => console.error('Error fetching experience data:', error));
-	}, []);
-
 	return (
 		<div>
 			<AtomPBPortfolioTable
-				title={title}
-				content={portfolioListData}
+				title={props.title}
+				content={props.portfolioList}
 				onRowClick={handleRowClick}
 			/>
 			{selectedRow && (

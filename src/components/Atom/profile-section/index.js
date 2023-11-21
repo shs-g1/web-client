@@ -32,7 +32,7 @@ const AtomProfileSection = ({ title, content }) => {
       )}
       {content.type === "certificate" && (
         <Text>
-          {content.certificates.map((cert, index) => (
+          {content.certificate.map((cert, index) => (
             <Text key={index}>
               <Text>{cert}</Text>
             </Text>
