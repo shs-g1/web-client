@@ -1,59 +1,112 @@
 // components/Atom/specialization-input/index.js
 
 import React, { useState } from "react";
+import styled from "styled-components";
+import { SaveButton } from "../image-input/styled";
 
-const AtomSpecializationInput = ({ onUpdate, attribute }) => {
-	const [selectedHashtags, setSelectedHashtags] = useState([]);
+export const Container = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+`;
 
-	const toggleHashtag = (hashtag) => {
-		if (selectedHashtags.includes(hashtag)) {
-			setSelectedHashtags(selectedHashtags.filter(tag => tag !== hashtag));
-		} else {
-			setSelectedHashtags([...selectedHashtags, hashtag]);
-		}
-	};
+export const Required = styled.span`
+  color: #c13c3c;
+  font-size: 18px;
+  margin-right: 3px;
+`;
 
-	const handleSaveCareer = () => {	// 전문분야 저장하기 버튼 누르면 호출, 외부 컴포넌트로 selectedHashtags를 넘겨준다.
-		onUpdate(attribute, selectedHashtags);
-	}
+export const Text = styled.div`
+  font-size: 18px;
+  font-weight: 400;
+  margin-right: 30px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+`;
 
-	return (
-		<div>
-			<h2>전문 분야 선택</h2>
-			<p>(최대 3개까지 선택해주세요.)</p>
-			<div className="hashtag-container">
-				<button
-					className={`hashtag-button ${selectedHashtags.includes('tag1') && 'selected'}`}
-					onClick={() => toggleHashtag('금융상품')}
-				>
-					금융상품
-				</button>
-				<button
-					className={`hashtag-button ${selectedHashtags.includes('tag2') && 'selected'}`}
-					onClick={() => toggleHashtag('국내주식')}
-				>
-					국내주식
-				</button>
-				<button
-					className={`hashtag-button ${selectedHashtags.includes('tag3') && 'selected'}`}
-					onClick={() => toggleHashtag('해외주식')}
-				>
-					해외주식
-				</button>
-				<button
-					className={`hashtag-button ${selectedHashtags.includes('tag3') && 'selected'}`}
-					onClick={() => toggleHashtag('은퇴관리')}
-				>
-					은퇴관리
-				</button>
-				{/* 추가적인 해시태그 버튼 추가. */}
-			</div>
-			<p>선택된 해시태그: {selectedHashtags.join(', ')}</p>
-			{/* 추가적인 해시태그 버튼 추가. 담는 목록 추가 */}
-			<button onClick={handleSaveCareer}>전문분야 저장하기</button>
-		</div>
-	);
-}
+export const Span = styled.span`
+  font-size: 18px;
+  color: #d9d9d9;
+  margin-left: 5px;
+`;
+
+export const HashTag = styled.button`
+  cursor: pointer;
+  border-radius: 30px;
+  background: ${({ isSelected }) => (isSelected ? "#384a7d" : "#fafafa")};
+  color: ${({ isSelected }) => (isSelected ? "#fafafa" : "#384a7d")};
+  text-align: center;
+  width: 120px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 20px;
+  padding: 0 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  margin: 20px 0px 30px 0px;
+`;
+
+const AtomSpecializationInput = ({ onUpdate, attribute, required }) => {
+  const [selectedHashtags, setSelectedHashtags] = useState([]);
+
+  const [buttonStates, setButtonStates] = useState({
+    금융상품: false,
+    국내주식: false,
+    해외주식: false,
+    은퇴관리: false,
+  });
+
+  const handleToggle = (button) => {
+    setButtonStates((prevStates) => ({
+      ...prevStates,
+      [button]: !prevStates[button],
+    }));
+  };
+
+  const toggleHashtag = (hashtag) => {
+    if (selectedHashtags.includes(hashtag)) {
+      setSelectedHashtags(selectedHashtags.filter((tag) => tag !== hashtag));
+    } else {
+      setSelectedHashtags([...selectedHashtags, hashtag]);
+    }
+
+    // Toggle the button state
+    handleToggle(hashtag);
+  };
+
+  const handleSaveCareer = () => {
+    onUpdate(attribute, selectedHashtags);
+  };
+
+  return (
+    <div>
+      <Text>
+        {required && <Required>*</Required>}전문 분야
+        <Span>( 최대 3개까지 입력해주세요)</Span>
+      </Text>
+      <ButtonContainer>
+        {Object.keys(buttonStates).map((button) => (
+          <HashTag
+            key={button}
+            isSelected={buttonStates[button]}
+            onClick={() => toggleHashtag(button)}
+          >
+            {button}
+          </HashTag>
+        ))}
+        <SaveButton onClick={handleSaveCareer}>임시 저장</SaveButton>
+      </ButtonContainer>
+    </div>
+  );
+};
 
 export default AtomSpecializationInput;
-
