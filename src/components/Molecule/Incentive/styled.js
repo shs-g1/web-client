@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 230px;
-  height: 60px;
+  width: 15vw;
+  height: 10vh;
   padding: 30px;
-  margin-top: 40px;
+  margin: 40px 0px;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
 `;
@@ -17,7 +17,7 @@ export const Title = styled.div`
 `;
 
 export const IncentiveItem = styled.span`
-  font-size: 14px;
+  font-size: 17px;
   margin-right: 5px;
 `;
 

@@ -29,7 +29,7 @@ export const RightContainer = styled.div`
 export const BackgroundImage = styled.div`
   background-color: #ffffff;
   border-radius: 20px;
-  padding: 10px 70px 5px 70px;
+  padding: 10px 70px 0px 70px;
   margin-top: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;

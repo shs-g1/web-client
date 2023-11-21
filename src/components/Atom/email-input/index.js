@@ -52,6 +52,7 @@ const AtomEmailInput = ({ onUpdate, attribute, width, required }) => {
     }`;
     onUpdate(attribute, email);
     console.log(email);
+
     setModalOpen(true); // 저장되었다는 모달 열기
   };
 
@@ -71,7 +72,7 @@ const AtomEmailInput = ({ onUpdate, attribute, width, required }) => {
         <Input
           className="box"
           type="text"
-          value={`${selectedDomain}`}
+          value={selectedDomain === "type" ? localPart : `${selectedDomain}`}
           placeholder="도메인을 선택해주세요"
           disabled={!inputEnabled}
         />
