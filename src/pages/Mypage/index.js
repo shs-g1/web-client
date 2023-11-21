@@ -38,7 +38,7 @@ const Mypage = () => {
 
     try {
       // TODO: 제출 url 변경
-      const response = await fetch("api/submit", {
+      const response = await fetch("http://localhost:8080/form", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
