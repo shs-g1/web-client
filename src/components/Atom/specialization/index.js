@@ -7,7 +7,7 @@ const Keyword = styled.div`
   border-radius: 30px;
   background: #fafafa;
   color: #384a7d;
-  font-family: Poppins;
+  font-family: "ONE SHINHAN MEDUIM";
   font-size: 18px;
   font-weight: 700;
   display: flex;

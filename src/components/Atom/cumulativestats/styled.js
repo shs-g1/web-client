@@ -20,6 +20,7 @@ export const SmallContainer = styled.div`
 `;
 
 export const Text = styled.div`
+  font-family: "ONE SHINHAN MEDUIM";
   font-size: 28px;
   font-weight: 400;
   margin-bottom: 8px;

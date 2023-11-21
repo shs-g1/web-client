@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const ListHeader = styled.div`
   color: #384a7d;
-  font-size: 20px;
+  font-size: 25px;
   font-style: normal;
   font-weight: 700;
   line-height: 21px;
@@ -58,6 +58,7 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-right: 10px;
+  font-family: "ONE SHINHAN MEDUIM";
 `;
 
 export const TimeContainer = styled.div`

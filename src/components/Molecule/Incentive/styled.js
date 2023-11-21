@@ -11,14 +11,16 @@ export const Container = styled.div`
 
 export const Title = styled.div`
   color: #384a7d;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   margin-bottom: 10px;
+  font-family: "ONE SHINHAN MEDUIM";
 `;
 
 export const IncentiveItem = styled.span`
   font-size: 17px;
   margin-right: 5px;
+  line-height: 1.5;
 `;
 
 export const IncentiveBlue = styled.span`

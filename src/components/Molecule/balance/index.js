@@ -3,20 +3,8 @@ import { SubTitle, Table } from "../../index";
 import React, { forwardRef } from "react";
 const Balance = forwardRef((data, ref) => {
   const tableHeader = ["종목코드", "종목명", "투자수량", "평가금액"];
-  const jusikData = [
-    {
-      code: "A005930",
-      name: "삼성전자",
-      amount: "100",
-      price: "1000000",
-    },
-    {
-      code: "A005930",
-      name: "삼성전자",
-      amount: "100",
-      price: "1000000",
-    },
-  ];
+  console.log(data.data[0].transactionDtoList, "whdahr");
+  const jusikData = data.data[0].transactionDtoList;
 
   const chaegwonData = [
     {

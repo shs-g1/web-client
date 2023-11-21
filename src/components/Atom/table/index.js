@@ -8,6 +8,7 @@ import {
   Blue,
   AccountContainer,
   Button,
+  Center,
 } from "./styled";
 import { useNavigate } from "react-router-dom";
 
@@ -34,7 +35,6 @@ const Table = ({ nodes, header }) => {
             </NameContainer>
           );
         } else if (item === "목표수익률" || item === "targetProfitRate") {
-
           item = "targetProfitRate";
           if (rowData[item] >= 0) {
             return (
@@ -72,16 +72,18 @@ const Table = ({ nodes, header }) => {
         } else if (item === "계좌번호" || item === "accountNumberAndName") {
           item = "accountNumberAndName";
           return (
-            <AccountContainer>
-              <Button>종합매매</Button>
-              <Name>
-                {`${rowData[item][0].slice(0, 3)}-${rowData[item][0].slice(
-                  3,
-                  5
-                )}-${rowData[item][0].slice(5)}`}
-                {` ${rowData[item][1]} `}
-              </Name>
-            </AccountContainer>
+            <Center>
+              <AccountContainer>
+                <Button>종합</Button>
+                <Name>
+                  {`${rowData[item][0].slice(0, 3)}-${rowData[item][0].slice(
+                    3,
+                    5
+                  )}-${rowData[item][0].slice(5)}`}
+                  {` ${rowData[item][1]} `}
+                </Name>
+              </AccountContainer>
+            </Center>
           );
         } else if (item === "이메일" || item === "email") {
           item = "email";
