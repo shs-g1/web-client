@@ -68,6 +68,10 @@ export const ModalButton = styled.button`
   font-size: 16px;
   font-weight: 500;
   background-color: #ffffff;
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 export const TextArea = styled.textarea`
@@ -93,6 +97,10 @@ export const AddButton = styled.button`
   background-color: #eaeff6;
   padding: 5px 10px;
   border-radius: 5px;
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 export const TimePicker = styled.input.attrs({

@@ -46,7 +46,9 @@ const Login = () => {
 
       localStorage.setItem("pbId", response.data.payload.login.pbId);
 
-      alert("로그인 성공", response.data.payload.login.pbId);
+      localStorage.setItem("pbName", response.data.payload.login.pbName);
+
+      alert("로그인 성공", response.data.payload.login.pbName);
       navigate("/main");
     } catch (error) {
       setSuccessLogin(false);

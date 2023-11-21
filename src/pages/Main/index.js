@@ -23,16 +23,23 @@ import { useEffect, useState } from "react";
 import { instance } from "../../apis";
 
 const Main = () => {
+  const [calendarKey, setCalendarKey] = useState(0);
   const [events, setEvents] = useState([]);
   const [todayEvents, setTodayEvents] = useState([]);
   const [tables, setTables] = useState([]);
   const [incentive, setIncentive] = useState(0);
+
+  const pbName = localStorage.getItem("pbName");
+  const handleTodoUpdate = () => {
+    console.log("Todo updated!");
+    setCalendarKey((prevKey) => prevKey + 1);
+  };
+
   /*event 받기 */
   const getApiList = async () => {
     try {
       const pbId = localStorage.getItem("pbId");
       const response = await instance.get(`/workspace?pbId=${pbId}`);
-      console.log(response.data, "responseData");
       setEvents(response.data.calendarResponseDto);
       setTables(response.data.clientResponseDto);
       setIncentive(response.data.incentive);
@@ -48,14 +55,12 @@ const Main = () => {
   useEffect(() => {
     /*오늘 일정 필터링 */
     if (events.length > 0) {
-      console.log(events, "events");
       const currentDate = new Date().toLocaleDateString();
       const filteredEvents = events.filter(
         (event) => new Date(event.date).toLocaleDateString() === currentDate
       );
 
       setTodayEvents(filteredEvents);
-      console.log(filteredEvents, "todayEvents");
     } else {
       console.log("events is null");
     }
@@ -72,17 +77,20 @@ const Main = () => {
 
   return (
     <>
-      <Header tab={1}></Header>
+      <Header tab={1} pbName={`${pbName}`}></Header>
 
       <Container>
         <MainContainer>
           <BackgroundImage>
-            <PageTitle blueTItle="OO님의 " title="작업 공간입니다. " />
+            <PageTitle blueTItle={`${pbName}님의`} title="작업 공간입니다. " />
             <SubTitle subTitle="일정 관리"></SubTitle>
             <ScheduleContainer>
-              <Calendar></Calendar>
+              <Calendar key={calendarKey}></Calendar>
               <RightContainer>
-                <Todo events={todayEvents}></Todo>
+                <Todo
+                  events={todayEvents}
+                  onTodoUpdate={handleTodoUpdate}
+                ></Todo>
                 <Incentive
                   title="누적 인센티브"
                   incentiveTitle="누적된 인센티브는"

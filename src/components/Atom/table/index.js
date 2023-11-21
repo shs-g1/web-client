@@ -19,12 +19,14 @@ const Table = ({ nodes, header }) => {
     navigate(`/management/${id}`);
   };
 
+  console.log(nodes, "nodes");
+
   const COLUMNS = header.map((item) => {
     return {
       label: item,
       renderCell: (rowData) => {
-        console.log(rowData);
         if (item === "이름") {
+          console.log(rowData, "rowData");
           item = "nameAndProfile";
           return (
             <NameContainer onClick={() => handleRowClick(rowData)}>
@@ -67,22 +69,17 @@ const Table = ({ nodes, header }) => {
               {rowData[item]}원
             </Name>
           );
-        } else if (item.includes("금액")) {
-          return (
-            <Name onClick={() => handleRowClick(rowData)}>
-              {rowData[item]}원
-            </Name>
-          );
-        } else if (item === "계좌번호") {
+        } else if (item === "계좌번호" || item === "accountNumberAndName") {
+          item = "accountNumberAndName";
           return (
             <AccountContainer>
-              <Button>{rowData[item][0]}</Button>
+              <Button>종합매매</Button>
               <Name>
-                {`${rowData[item][1].slice(0, 3)}-${rowData[item][1].slice(
+                {`${rowData[item][0].slice(0, 3)}-${rowData[item][0].slice(
                   3,
                   5
-                )}-${rowData[item][1].slice(5)}`}
-                {` ${rowData[item][2]} `}
+                )}-${rowData[item][0].slice(5)}`}
+                {` ${rowData[item][1]} `}
               </Name>
             </AccountContainer>
           );
@@ -91,7 +88,14 @@ const Table = ({ nodes, header }) => {
           return <Name>{rowData[item]}</Name>;
         } else if (item === "전화번호") {
           item = "phone";
+          return <Name>{rowData[item]}</Name>;
+        } else if (item === "총자산" || item === "totalAssets") {
+          item = "totalAssets";
           return <Name>{rowData[item]}원</Name>;
+        } else if (item === "출금가능금액" || item === "withdrawalAmount") {
+          item = "withdrawalAmount";
+
+          return <Name>{rowData[item]}</Name>;
         }
 
         return (
