@@ -1,42 +1,43 @@
 import { Container, MiniTitle, Margin } from "./styled";
 import { SubTitle, Table } from "../../index";
 import React, { forwardRef } from "react";
-const Balance = forwardRef((props, ref) => {
+const Balance = forwardRef((data, ref) => {
   const tableHeader = ["종목코드", "종목명", "투자수량", "평가금액"];
   const jusikData = [
     {
-      종목코드: "A005930",
-      종목명: "삼성전자",
-      투자수량: "100",
-      평가금액: "1000000",
+      code: "A005930",
+      name: "삼성전자",
+      amount: "100",
+      price: "1000000",
     },
     {
-      종목코드: "A005930",
-      종목명: "삼성전자",
-      투자수량: "100",
-      평가금액: "1000000",
+      code: "A005930",
+      name: "삼성전자",
+      amount: "100",
+      price: "1000000",
     },
   ];
+
   const chaegwonData = [
     {
-      종목코드: "R6003492DB8",
-      종목명: "대한항공 105-2",
-      투자수량: "50",
-      평가금액: "1000000",
+      code: "R6003492DB8",
+      name: "대한항공 105-2",
+      amount: "50",
+      price: "1000000",
     },
     {
-      종목코드: "R6003492DB8",
-      종목명: "대한항공 105-2",
-      투자수량: "50",
-      평가금액: "1000000",
+      code: "R6003492DB8",
+      name: "대한항공 105-2",
+      amount: "50",
+      price: "1000000",
     },
   ];
   const pasaengData = [
     {
-      종목코드: "9002000",
-      종목명: "삼성인덱스프리미엄30증권투자회사",
-      투자수량: "50",
-      평가금액: "1000000",
+      code: "R6003492DB8",
+      name: "삼성인덱스프리미엄30증권투자회사",
+      amount: "50",
+      price: "1000000",
     },
   ];
   return (

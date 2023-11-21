@@ -19,15 +19,18 @@ const CustomerInfoContainer = ({ customer }) => {
       </LeftContainer>
       <RightContainer>
         <NameContainer>
-          {/* <Name>{customer.name[0]}</Name> */}
+          <Name>{customer.name}</Name>
           <TextContainer>
             <Text>{customer.phone}</Text>
             <Text>{customer.email}</Text>
           </TextContainer>
         </NameContainer>
         <ButtonContainer>
-          <OptionButton text="안정형" color="white"></OptionButton>
-          <OptionButton text="일반 고객" color="blue"></OptionButton>
+          <OptionButton
+            text={customer.type + "형"}
+            color="white"
+          ></OptionButton>
+          <OptionButton text={customer.option} color="blue"></OptionButton>
         </ButtonContainer>
       </RightContainer>
     </Container>

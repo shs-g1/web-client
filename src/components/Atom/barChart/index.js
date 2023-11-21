@@ -2,9 +2,13 @@ import React, { useEffect, useRef } from "react";
 import { Chart, registerables } from "chart.js";
 import "chartjs-plugin-datalabels";
 
-const BarChart = () => {
+const BarChart = ({ data }) => {
   const chartRef = useRef(null);
   const chartInstanceRef = useRef(null);
+  console.log(data.data, "data");
+
+  const labels = data.data.map((item) => item.sector);
+  const datasets = [data.data.map((item) => item.percent)];
 
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
@@ -14,17 +18,11 @@ const BarChart = () => {
       chartInstanceRef.current = new Chart(ctx, {
         type: "bar",
         data: {
-          labels: [
-            "국내주식",
-            "해외주식",
-            "해외이머징",
-            "국내채권",
-            "해외채권",
-          ],
+          labels: labels,
           datasets: [
             {
               label: "자산 비율",
-              data: [15, 20, 60, 10, 22, 30],
+              data: datasets[0],
               backgroundColor: "rgba(54, 162, 235, 0.2)",
               borderColor: "rgba(54, 162, 235, 1)",
               borderWidth: 1,

@@ -27,6 +27,12 @@ export const Style = styled.div`
     word-break: break-all;
     max-width: 350px;
   }
+
+  tr {
+    &:hover {
+      background-color: #fafafa;
+    }
+  }
 `;
 
 export const NameContainer = styled.div`

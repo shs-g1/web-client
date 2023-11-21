@@ -4,7 +4,7 @@ import { Tab } from "../../index";
 import { Container, TabNav, UserBox, Text, Image } from "./styled";
 import pbProfile from "../../../assets/images/pbProfile.png";
 
-const Header = ({ tab }) => {
+const Header = ({ tab, pbName }) => {
   const navigate = useNavigate();
 
   const [selectedTab, setSelectedTab] = useState(tab);
@@ -42,7 +42,7 @@ const Header = ({ tab }) => {
         />
       </TabNav>
       <UserBox>
-        <Text>OO님 안녕하세요!</Text>
+        <Text>{pbName}님 안녕하세요!</Text>
         <Image src={pbProfile}></Image>
       </UserBox>
     </Container>

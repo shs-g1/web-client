@@ -5,7 +5,7 @@ import MoleculeContact from "../../Molecule/contact";
 import AtomProfileImage from "../../Atom/profile-image";
 import PBProfile from "../../../assets/images/pbProfile.png";
 import { Container } from "./styled";
-import defaultImage from '../../../assets/images/sol.jpeg';
+
 
 const OrganismContact = () => {
   //   const [imageUrl, setImageUrl] = useState(

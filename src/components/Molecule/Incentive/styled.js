@@ -16,12 +16,12 @@ export const Title = styled.div`
   margin-bottom: 10px;
 `;
 
-export const IncentiveItem = styled.div`
+export const IncentiveItem = styled.span`
   font-size: 14px;
   margin-right: 5px;
 `;
 
-export const IncentiveBlue = styled.div`
+export const IncentiveBlue = styled.span`
   color: #384a7d;
   font-weight: 700;
 `;

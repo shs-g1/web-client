@@ -8,9 +8,10 @@ import {
   LineElement,
 } from "chart.js";
 
-const LineChart = () => {
+const LineChart = ({ data }) => {
   const chartRef = useRef(null);
   let chartInstance = null;
+  console.log(data, "data2");
 
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
@@ -26,7 +27,7 @@ const LineChart = () => {
       chartInstance = new Chart(ctx, {
         type: "line",
         data: {
-          labels: ["1월", "2월", "3월", "4월", "5월", "6월"],
+          labels: data.labels,
           datasets: [
             {
               label: "종합 계좌",
