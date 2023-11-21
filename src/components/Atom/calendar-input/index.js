@@ -3,11 +3,13 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 
-const AtomCalendarInput = () => {
-	const [selectedDate, setSelectedDate] = useState(null);
+const AtomCalendarInput = ({ value, onChange }) => {
+
+	const [selectedDate, setSelectedDate] = useState(value || '');	//	props로 넘어온 value를 초기값(공백)으로 할당
 
 	const handleDateChange = (date) => {
 		setSelectedDate(date);
+		onChange(date);
 	};
 
 	return (
