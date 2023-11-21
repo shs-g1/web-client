@@ -2,17 +2,16 @@
 
 import React, { useState } from "react";
 
-const AtomIntroductionInput = ({ onSubmit }) => {
+const AtomIntroductionInput = ({ onUpdate, attribute }) => {
 	const [introduction, setIntroduction] = useState('');
 
 	const handleIntroductionChange = (e) => {
 		setIntroduction(e.target.value);
 	};
 
-	const handleFormSubmit = (e) => {
+	const handleFormSubmit = (e) => {	// 저장 버튼을 누르면 form의 onSubmit으로 호출되는 함수
 		e.preventDefault();
-		// onSubmit 함수를 호출하여 입력된 자기소개를 전달합니다.
-		onSubmit({ introduction });
+		onUpdate(attribute, introduction);
 	};
 
 	return (
