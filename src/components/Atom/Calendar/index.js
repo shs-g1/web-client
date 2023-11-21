@@ -39,7 +39,6 @@ const Calendar = () => {
     try {
       const pbId = localStorage.getItem("pbId");
       const response = await instance.get(`/workspace?pbId=${pbId}`);
-      console.log(response.data, "responseData");
       setEvents(response.data.calendarResponseDto);
     } catch (error) {
       console.log(error);
@@ -70,8 +69,6 @@ const Calendar = () => {
         setEvents((prevEvents) => [...prevEvents, response.data]);
       }
 
-      console.log(apiData, "after post");
-
       setApiData({
         date: "",
         time: "",
@@ -99,6 +96,8 @@ const Calendar = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    window.location.reload();
+
   };
 
   return (

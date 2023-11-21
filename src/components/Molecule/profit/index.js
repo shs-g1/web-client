@@ -1,11 +1,11 @@
 import { LineChart, SubTitle } from "../../index";
 import { Reduce, Container } from "../portfolio/styled";
-const Profit = () => {
+const Profit = ({ data }) => {
   return (
     <Container>
       <SubTitle subTitle="수익률"></SubTitle>
       <Reduce>
-        <LineChart></LineChart>
+        <LineChart data={data}></LineChart>
       </Reduce>
     </Container>
   );
