@@ -4,12 +4,11 @@ import { Header } from "../../components/index";
 import AtomPlainInput from "../../components/Atom/plain-input";
 import AtomImageInput from "../../components/Atom/image-input";
 import AtomEmailInput from "../../components/Atom/email-input";
-import MoleculeCareerDurationInput from "../../components/Molecule/career-duration-input";
-import MoleculeCareerListInput from "../../components/Molecule/career-list-input";
-import MoleculeEducationDurationInput from "../../components/Molecule/education-duration-input";
-import MoleculeEduactionListInput from "../../components/Molecule/education-list-input";
-import MoleculeSpecializationCertificateInput from "../../components/Organism/specialization-certificate-input";
+import MoleculeCareerInput from "../../components/Molecule/career-input";
+import MoleculeEducationInput from "../../components/Molecule/education-input";
+import MoleculeCertificateInput from "../../components/Molecule/certificate-input"
 import AtomIntroductionInput from "../../components/Atom/introduction-input";
+import AtomSpecializationInput from "../../components/Atom/specialization-input";
 
 const Mypage = () => {
 
@@ -64,12 +63,11 @@ const Mypage = () => {
       <AtomPlainInput title={'전화번호'} placeholder={'전화번호'} onUpdate={handleInputChange} attribute={'phoneNumber'} />
       <AtomImageInput onUpdate={handleInputChange} attribute={'imageUrl'} />
       <AtomEmailInput onUpdate={handleInputChange} attribute={'email'} />
-      <MoleculeCareerListInput title='경력' onUpdate={handleInputChange} />
-      <MoleculeCareerDurationInput title='근무 기간' onUpdate={handleInputChange} />
-      <MoleculeEduactionListInput title='학력' onUpdate={handleInputChange} />
-      <MoleculeEducationDurationInput title='기간' onUpdate={handleInputChange} />
-      <MoleculeSpecializationCertificateInput onUpdate={handleInputChange} />
-      <AtomIntroductionInput onUpdate={handleInputChange} />
+      <MoleculeCareerInput onUpdate={handleInputChange} attribute={'careerList'} />
+      <MoleculeEducationInput onUpdate={handleInputChange} attribute={'educationList'} />
+      <AtomSpecializationInput onUpdate={handleInputChange} attribute={'specialization'} />
+      <MoleculeCertificateInput onUpdate={handleInputChange} attribute={'certificates'} />
+      <AtomIntroductionInput onUpdate={handleInputChange} attribute={'introduction'} />
       <button onClick={handleFormSubmit}>수정하기</button>
     </Container>
   );

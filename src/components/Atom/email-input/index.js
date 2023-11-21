@@ -10,7 +10,7 @@ const AtomEmailInput = ({ onUpdate, attribute }) => {
 	const domains = ['naver.com', 'google.com', 'hanmail.net', 'nate.com', 'kakao.com', 'shinhan.com'];
 	const [isModalOpen, setModalOpen] = useState(false);
 
-	// TODO: 직접 입력
+	// TODO: 저장 확인 모달창 구현
 	const handleDomainChange = (e) => {
 		const value = e.target.value;	// select된 요소의 value
 		// If the selected value is 'type', enable input and clear custom domain input
