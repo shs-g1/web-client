@@ -14,9 +14,9 @@ const MoleculeEducationInput = ({ onUpdate, attribute }) => {
 		}
 	]);
 
-	const handleInputChange = (index, attribute, newValue) => {	// 각 입력창(학교, 부서, 시작 날짜, 종료 날짜)에 입력 시 호출
+	const handleInputChange = (index, field, newValue) => {	// 각 입력창(학교, 부서, 시작 날짜, 종료 날짜)에 입력 시 호출
 		const updatedEducationoHistory = [...educationHistory];
-		updatedEducationoHistory[index][attribute] = newValue;
+		updatedEducationoHistory[index][field] = newValue;
 		setEducationHistory(updatedEducationoHistory);	// EducationHistory 상태 업데이트
 	};
 

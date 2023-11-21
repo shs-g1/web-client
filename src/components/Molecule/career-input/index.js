@@ -13,9 +13,9 @@ const MoleculeCareerInput = ({ onUpdate, attribute }) => {
 		},
 	]);
 
-	const handleInputChange = (index, attribute, newValue) => {	// 각 입력창(Company, Department, Start Date, End Date)에 입력 시 호출
+	const handleInputChange = (index, field, newValue) => {	// 각 입력창(Company, Department, Start Date, End Date)에 입력 시 호출
 		const updatedCareerHistory = [...careerHistory];
-		updatedCareerHistory[index][attribute] = newValue;
+		updatedCareerHistory[index][field] = newValue;
 		setCareerHistory(updatedCareerHistory);	// careerHistory 상태 업데이트
 	};
 
