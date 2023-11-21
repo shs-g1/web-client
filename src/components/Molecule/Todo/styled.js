@@ -70,3 +70,4 @@ export const Time = styled.li`
   font-weight: 500;
   margin-right: 5px;
 `;
+

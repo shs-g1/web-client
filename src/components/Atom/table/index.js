@@ -34,6 +34,7 @@ const Table = ({ nodes, header }) => {
             </NameContainer>
           );
         } else if (item === "목표수익률" || item === "targetProfitRate") {
+
           item = "targetProfitRate";
           if (rowData[item] >= 0) {
             return (
@@ -111,7 +112,6 @@ const Table = ({ nodes, header }) => {
           item = "price";
           return <Name>{rowData[item]}원</Name>;
         }
-
         return (
           <Name onClick={() => handleRowClick(rowData)}>{rowData[item]}</Name>
         );

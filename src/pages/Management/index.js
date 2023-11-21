@@ -37,6 +37,7 @@ const Management = () => {
   const getListApi = async () => {
     try {
       const response = await instance.get(`/clientInfo?clientId=${id}`);
+
       console.log(response.data, "responseData");
       setApiData(response.data);
     } catch (error) {

@@ -28,7 +28,6 @@ const Main = () => {
   const [todayEvents, setTodayEvents] = useState([]);
   const [tables, setTables] = useState([]);
   const [incentive, setIncentive] = useState(0);
-
   const pbName = localStorage.getItem("pbName");
   const handleTodoUpdate = () => {
     console.log("Todo updated!");

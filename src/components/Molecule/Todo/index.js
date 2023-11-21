@@ -89,6 +89,7 @@ const Todo = ({ events, onTodoUpdate }) => {
       console.error("할일 추가 실패:", error.response.reason);
     }
   };
+
   return (
     <Container>
       <Header>
@@ -144,12 +145,12 @@ const Todo = ({ events, onTodoUpdate }) => {
           rows={10}
           placeholder="일정을 입력하세요"
         ></TextArea>
-
         <ButtonContainer>
           <ModalButton onClick={closeModal}>닫기</ModalButton>
           <AddButton onClick={handleAddEvent}>추가</AddButton>
         </ButtonContainer>
       </Modal>
+
     </Container>
   );
 };
