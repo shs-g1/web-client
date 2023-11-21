@@ -6,8 +6,17 @@ export const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   padding: 10px 10px;
+  align-items: center;
 `;
 
 export const Image = styled.img`
-  width: 100px;
+  width: 60px;
+`;
+
+export const Text = styled.div`
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 10px;
+  font-family: Poppins;
 `;

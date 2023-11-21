@@ -40,6 +40,9 @@ const Login = () => {
         },
         {
           withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
       // 로그인 성공 처리

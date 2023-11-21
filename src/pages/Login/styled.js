@@ -20,6 +20,7 @@ export const LoginContainer = styled.form`
   justify-content: center;
   border-radius: 20px;
   padding: 20px 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
 export const InputContainer = styled.div`
@@ -70,6 +71,10 @@ export const LoginButton = styled.button`
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 export const Error = styled.div`

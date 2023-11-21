@@ -16,16 +16,17 @@ export const Style = styled.div`
     color: #b5b5c3;
     font-size: 16px;
     font-weight: 600;
+    max-width: 500px;
   }
 
   td {
-    padding: 15px 20px;
+    padding: 15px 0px;
     text-align: center;
     color: #464e5f;
     font-size: 16px;
     font-weight: 600;
     word-break: break-all;
-    max-width: 350px;
+    max-width: 500px;
   }
 
   tr {
