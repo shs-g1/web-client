@@ -23,7 +23,8 @@ const LineChart = ({ data }) => {
   ];
   const chartRef = useRef(null);
   let chartInstance = null;
-  console.log(data, "data2");
+
+  const color = ["#165BAA", "rgba(255, 99, 132, 1)", "#A155B9"];
 
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
@@ -36,14 +37,15 @@ const LineChart = ({ data }) => {
         PointElement,
         LineElement
       );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       chartInstance = new Chart(ctx, {
         type: "line",
         data: {
-          labels: data.labels,
+          labels: data[0].labels,
           datasets: [
             {
               label: "종합 계좌",
-              data: [0, 20, 30, 40, 50, 60],
+              data: data[0].profitRates,
               borderColor: "#165BAA",
               pointRadius: 5, // 포인트 크기
               pointBackgroundColor: "#165BAA", // 포인트 배경색
@@ -53,16 +55,15 @@ const LineChart = ({ data }) => {
             },
             {
               label: "CMA 계좌",
-              data: [20, 30, 50, 20, 10, 10],
+              data: imsiData[1].profitRates,
               borderColor: "rgba(255, 99, 132, 1)",
               pointRadius: 5, // 포인트 크기
-              pointBackgroundColor: "rgba(255, 99, 132, 1)", // 포인트 배경색
               pointBorderColor: "rgba(255, 255, 255, 1)", // 포인트 테두리 색
               pointHoverRadius: 7, // 호버 시 포인트 크기
               fill: false, // 라인 그래프에서 영역 채우기 비활성화
             },
             {
-              label: "CMA 계좌",
+              label: "종합 계좌",
               data: [25, 10, 18, 20, -19, 0],
               borderColor: "#A155B9",
               pointRadius: 5, // 포인트 크기

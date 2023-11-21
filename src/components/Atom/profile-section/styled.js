@@ -6,14 +6,13 @@ export const Container = styled.div`
   padding: 0 25px;
 `;
 export const Title = styled.div`
-  font-family: Poppins;
+  font-family: "ONE SHINHAN MEDUIM";
   font-size: 26px;
   font-weight: 600;
   margin: 10px 0px;
 `;
 
 export const Text = styled.div`
-  font-family: Poppins;
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 10px;
@@ -21,7 +20,6 @@ export const Text = styled.div`
 `;
 
 export const SmallText = styled.div`
-  font-family: Poppins;
   font-size: 16px;
   margin-bottom: 5px;
   color: #817b7b;

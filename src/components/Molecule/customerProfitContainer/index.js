@@ -1,4 +1,4 @@
-import { Container, Bold, Text, TextContainer } from "./styled";
+import { Container, Bold, Text, TextContainer, Black } from "./styled";
 
 const CustomerProfitContainer = ({ data }) => {
   console.log(data);
@@ -6,15 +6,17 @@ const CustomerProfitContainer = ({ data }) => {
     <Container>
       <TextContainer>
         <Bold>누적 수익률</Bold>
-        <Text>{data.currentProfitRate}%</Text>
+        <Text isNegative={data.currentProfitRate < 0}>
+          {data.currentProfitRate}%
+        </Text>
       </TextContainer>
       <TextContainer>
         <Bold>손익 금액</Bold>
-        <Text>{data.profits}원</Text>
+        <Text isNegative={data.currentProfitRate < 0}>{data.profits}원</Text>
       </TextContainer>
       <TextContainer>
         <Bold>자산 금액</Bold>
-        <Text>{data.totalAssets}원</Text>
+        <Black>{data.totalAssets}원</Black>
       </TextContainer>
     </Container>
   );

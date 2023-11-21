@@ -1,4 +1,5 @@
 import { OptionButton } from "../../index";
+import CustomerImg from "../../../assets/images/customerImg.png";
 import {
   Container,
   ButtonContainer,
@@ -12,10 +13,11 @@ import {
 } from "./styled";
 
 const CustomerInfoContainer = ({ customer }) => {
+  console.log(customer, "customer");
   return (
     <Container>
       <LeftContainer>
-        {/* <CustomerImage src={customer.name[0]}></CustomerImage> */}
+        <CustomerImage src={CustomerImg}></CustomerImage>
       </LeftContainer>
       <RightContainer>
         <NameContainer>
@@ -26,11 +28,11 @@ const CustomerInfoContainer = ({ customer }) => {
           </TextContainer>
         </NameContainer>
         <ButtonContainer>
+          <OptionButton text={customer.type} color="white"></OptionButton>
           <OptionButton
-            text={customer.type + "형"}
-            color="white"
+            text={customer.option + " 고객"}
+            color="blue"
           ></OptionButton>
-          <OptionButton text={customer.option} color="blue"></OptionButton>
         </ButtonContainer>
       </RightContainer>
     </Container>

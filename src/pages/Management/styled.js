@@ -19,8 +19,12 @@ export const SlideNav = styled.div`
 export const CustomerContainer = styled.div`
   display: flex;
   gap: 25px;
+  align-items: center;
+  justify-content: space-between;
 `;
 export const PortfolioContainer = styled.div`
   display: flex;
-  gap: 35px;
+  align-items: center;
+  gap: 25px;
+  justify-content: space-between;
 `;

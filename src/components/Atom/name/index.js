@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const Blue = styled.span`
   color: #384a7d;
+  font-family: "ONE SHINHAN MEDUIM";
 `;
 
 const Text = styled.span``;

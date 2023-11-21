@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 510px;
-  height: 90px;
-  padding: 50px 44px;
+  width: 44%;
+  height: 160px;
+  padding: 10px 27.5px;
   border-radius: 20px;
   background: #f3f3f4;
   display: flex;
   margin-top: 20px;
   flex-direction: column;
+  justify-content: center;
   gap: 10px;
 `;
 
@@ -26,10 +27,15 @@ export const Text = styled.div`
   font-weight: 400;
   line-height: normal;
   text-align: center;
+  color: ${(props) => (props.isNegative ? "#175AE9" : "#C13C3C")};
 `;
 
 export const TextContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+`;
+
+export const Black = styled.div`
+  color: #000000;
 `;

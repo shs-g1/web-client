@@ -2,11 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  font-family: Poppins;
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
@@ -16,7 +13,7 @@ export const Container = styled.div`
 
 export const Title = styled.div`
   color: #384a7d;
-  font-family: Poppins;
+  font-family: "ONE SHINHAN MEDUIM";
   font-size: 28px;
   font-weight: 700;
   margin-top: 20px;
@@ -26,7 +23,6 @@ export const Title = styled.div`
 export const GreyTitle = styled.div`
   color: #817b7b;
   text-align: center;
-  font-family: Poppins;
   font-size: 20px;
   font-weight: 300;
   width: 60%;

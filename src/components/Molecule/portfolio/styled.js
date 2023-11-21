@@ -6,5 +6,5 @@ export const Container = styled.div`
 `;
 
 export const Reduce = styled.div`
-  width: 525px;
+  width: 38vw;
 `;
