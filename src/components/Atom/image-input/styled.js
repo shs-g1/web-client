@@ -3,9 +3,7 @@
 import styled from "styled-components";
 
 export const ImageContainer = styled.div`
-  border: 2px solid #ccc;
   padding: 10px;
-  margin-bottom: 10px;
 `;
 
 export const Container = styled.div`
@@ -76,4 +74,24 @@ export const Image = styled.img`
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+`;
+
+export const FileButton = styled.button`
+  cursor: pointer;
+  background-color: #eaeff6;
+  color: #000;
+  padding: 8px;
+  border-radius: 4px;
+  margin-left: 20px;
+  cursor: pointer;
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+export const Label = styled.label`
+  cursor: pointer;
+  &:active {
+    transform: scale(0.95);
+  }
 `;
