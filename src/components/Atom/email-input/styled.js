@@ -58,6 +58,8 @@ export const Select = styled.select`
   border: 1px solid var(--Grey, #c9c9c9);
 `;
 
-export const Option = styled.option``;
+export const Option = styled.option`
+  color: #c9c9c9;
+`;
 
 export const Div = styled.div``;
