@@ -1,6 +1,6 @@
 // components/Molecule/pb-portfolio-list/index.js
 // 모달을 위한 컴포넌트
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import AtomPBPortfolioTable from "../../Atom/pb-portfolio-table";
 import MoleculePBPortfolioModal from "../pb-portfolio-modal";
 
@@ -12,6 +12,8 @@ const MoleculePBPortfolioList = (props) => {
 		setSelectedRow({ data, index });
 	};
 
+
+	// console.log(props.portfolioList); //	여기까지 잘 들어옴
 	return (
 		<div>
 			<AtomPBPortfolioTable
@@ -21,7 +23,7 @@ const MoleculePBPortfolioList = (props) => {
 			/>
 			{selectedRow && (
 				<MoleculePBPortfolioModal
-					rowData={selectedRow.data}	// TODO: index에 따라서 특정 포트폴리오 선택하기
+					rowData={selectedRow.index}
 					onClose={() => setSelectedRow(null)}
 				/>
 			)}

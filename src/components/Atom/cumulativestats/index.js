@@ -1,9 +1,9 @@
 // components/Atom/cumulativestats/index.js
 import React from "react";
 import { Container, SmallContainer, Text, Blue } from "./styled";
-const AtomCumulativeStats = (props) => {
+const AtomCumulativeStats = ({ cumulativeStats }) => {
 
-  const { customers, totalAmount, profitMargin } = props.cumulativeStats;
+  const { customers, totalAmount, profitMargin } = cumulativeStats;
 
   return (
     <Container>

@@ -55,20 +55,23 @@ const Client = () => {
 
   const fetchData = async () => {
     try {
-      let pbId = localStorage.getItem('pbIDkey'); // PB id 불러오는 코드
+      let pbId = localStorage.getItem('pbId'); // PB id 불러오는 코드
 
       if (!pbId) {
         pbId = '1'; // 기본 pbId=1
       }
 
-      const response = await fetch(`http://localhost:8080/api/v1/pbinfo?pbId=${pbId}`);
-      console.log(response);
+      const response = await fetch(`http://133.186.218.115/api/v1/pbinfo?pbId=${pbId}`, {
+        method: 'GET',
+        credentials: 'include', // Include credentials (cookies, HTTP authentication) in the request
+      });
 
       if (!response.ok) {
         console.error('HTTP 요청 실패:', response.status);
       }
       else {
         const data = await response.json();
+        // 여기까지 data 잘 들어옴 // console.log(data.customers)
         setPbInfo(data);
         setPortfolioList({
           portfolioID: data.portfolioID,
@@ -84,13 +87,13 @@ const Client = () => {
     }
   };
 
+  // console.log("pbinfo test");
+  // console.log(pbInfo.customers); // 잘나옴
+
   // 컴포넌트가 마운트되면 데이터를 가져옴
   useEffect(() => {
     fetchData();
-    console.log('포폴리스트')
-    console.log(portfolioList)
   }, []); // 빈 배열은 컴포넌트가 마운트될 때만 실행
-
 
   return (
     <Container>
@@ -106,7 +109,7 @@ const Client = () => {
           educationData: pbInfo.education,
           certificateData: pbInfo.certificates,
         }} />
-        {/* <MoleculePBPortfolioList title="포트폴리오" portfolioList={portfolioList} /> */}
+        <MoleculePBPortfolioList title="포트폴리오" portfolioList={portfolioList} />
       </PhoneSize>
     </Container>
   );

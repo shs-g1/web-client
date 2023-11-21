@@ -6,13 +6,16 @@ import { Doughnut } from "react-chartjs-2";
 import { Container, Title, Header } from "./styled";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+
+
 const AtomPBPortfolioDoughnutChartModal = ({ title, portfolioData }) => {
+
   const data = {
     labels: portfolioData.labels,
     datasets: [
       {
         data: portfolioData.ratios,
-        backgroundColor: ["#384A7D", "#E1E1E0", "#EAEFF6", "#63ABFD"],
+        backgroundColor: ["#384A7D", "#E1E1E0", "#D8B3FF", "#63ABFD"],  // 색 수정
       },
     ],
   };

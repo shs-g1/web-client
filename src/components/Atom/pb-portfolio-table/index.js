@@ -4,6 +4,17 @@
 import React from "react";
 import { Container, Title, Table, Thead, Tbody, Tr, Th, Td } from "./styled";
 
+const getRandomNumber = () => {
+  // Math.random()은 0 이상 1 미만의 난수를 생성
+  // 여기에 30을 곱하면 0 이상 30 미만의 난수를 얻을 수 있음
+  // 15를 뺌으로써 -15 이상 15 미만의 범위를 얻음
+  return Math.random() * 30 - 15;
+};
+
+// Td 컴포넌트에서 사용할 랜덤한 숫자
+const randomValues = [getRandomNumber(), getRandomNumber(), getRandomNumber()];
+
+
 const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
   const tableData = {
     portfolioNames: content.portfolioNames, // 이름
@@ -12,37 +23,6 @@ const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
     cumulativeRORs: content.cumulativeRORs, // 누적수익률
     durations: content.durations, // 기간
   };
-
-  //   {
-  //     "portfolioID": [
-  //         6
-  //     ],
-  //     "portfolioNames": [
-  //         "자문사 펀드1",
-  //         "자문사 펀드2",
-  //         "자문사 펀드3"
-  //     ],
-  //     "principals": [
-  //         1000000,
-  //         1000000,
-  //         1000000
-  //     ],
-  //     "returns": [
-  //         1602346,
-  //         1602346,
-  //         1602346
-  //     ],
-  //     "cumulativeRORs": [
-  //         1025.25,
-  //         1025.25,
-  //         200
-  //     ],
-  //     "durations": [
-  //         "2013.10.11~2023.05.23",
-  //         "2013.10.11~2023.05.23",
-  //         "2013.10.11~2023.05.23"
-  //     ]
-  // }
 
   return (
     <Container>
@@ -57,11 +37,12 @@ const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
           <Tr>
             <Th>누적 수익률</Th>
             <Th>기간</Th>
+            <Th>MDD</Th>
           </Tr>
         </Thead>
         {tableData.portfolioNames.map((portfolioName, index) => (
-          <Tbody>
-            <Tr key={index} onClick={() => onRowClick(tableData, index)}>
+          <Tbody key={index}>
+            <Tr onClick={() => onRowClick(tableData, index)}>
               <Td>{portfolioName}</Td>
               <Td>{tableData.principals[index]}원</Td>
               <Td>{tableData.returns[index]}원</Td>
@@ -69,6 +50,7 @@ const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
             <Tr>
               <Td>{tableData.cumulativeRORs[index]}%</Td>
               <Td>{tableData.durations[index]}</Td>
+              <Td>{randomValues[index]}</Td>
             </Tr>
           </Tbody>
         ))}

@@ -20,21 +20,22 @@ const Footer = styled.div`
 `;
 
 const MoleculePBPortfolioModal = ({ rowData, onClose }) => {
+  // rowData => index
   const title = "구성"; // 포트폴리오 구성
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   const [portfolioData, setPortfolioData] = useState({
-    labels: ["국내채권", "해외채권", "해외선물", "국내주식"],
-    productNames: ["상품1", "상품2", "상품3", "상품4"],
-    accumRORs: [1062.5, 235.8, 230.6, 684.5],
+    labels: ["국내주식", "국내채권(장내)", "해외주식", "국내주식"],
+    productNames: ["삼성전자", "농금채(중앙회)2023-11이2Y-C", "BABA", "캡스톤파트너스"],
+    accumRoRs: [106.2, 35.8, 230.6, 84.5],
     durations: ["10년 2개월", "5년 2개월", "10년 2개월", "8년 3개월"],
-    ratios: [25, 25, 25, 25], // default value
+    ratios: [42, 22, 8, 28], // default value
   });
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("api/portfolio/" + rowData) // TODO: api 호출, rowData(index)를 바탕으로 호출
+    fetch("http://133.186.218.115/api/v1/portfoliodetail?portfolioId=" + (rowData + 1)) // TODO: api 호출, rowData(index)를 바탕으로 호출
       .then((response) => response.json())
       .then((result) => {
         setPortfolioData(result);
@@ -49,6 +50,10 @@ const MoleculePBPortfolioModal = ({ rowData, onClose }) => {
   if (loading) {
     return <p>로딩 중...</p>;
   }
+
+  // console.log('debug');
+  // console.log(portfolioData);  // portfolioData 잘 들어온다.
+  // console.log('선택된 row는' + rowData);  // 여기까지 잘 들어옴
 
   return (
     <Modal

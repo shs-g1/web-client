@@ -38,13 +38,14 @@ const Mypage = () => {
 
     try {
       // TODO: 제출 url 변경
-      const response = await fetch("http://localhost:8080/form", {
+      const response = await fetch("http://133.186.218.115/form", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': 'http://localhost:3000',
         },
         body: JSON.stringify(formState),
+        credentials: 'include'
       });
 
       if (response.ok) {
