@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const ReduceSize = styled.div`
   padding: "0";
   .fc {
-    width: 700px;
-    padding: 0;
+    width: 52vw;
+    padding: 0 0 40px 0;
   }
 
   .fc .fc-col-header-cell-cushion {
@@ -97,10 +97,6 @@ export const AddButton = styled.button`
   background-color: #eaeff6;
   padding: 5px 10px;
   border-radius: 5px;
-
-  &:active {
-    transform: scale(0.95);
-  }
 `;
 
 export const TimePicker = styled.input.attrs({
