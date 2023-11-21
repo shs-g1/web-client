@@ -25,8 +25,7 @@ const Table = ({ nodes, header }) => {
     return {
       label: item,
       renderCell: (rowData) => {
-        if (item === "이름") {
-          console.log(rowData, "rowData");
+        if (item === "이름" || item === "nameAndProfile") {
           item = "nameAndProfile";
           return (
             <NameContainer onClick={() => handleRowClick(rowData)}>
@@ -34,7 +33,7 @@ const Table = ({ nodes, header }) => {
               <Name>{rowData[item][0]}</Name>
             </NameContainer>
           );
-        } else if (item === "목표수익률") {
+        } else if (item === "목표수익률" || item === "targetProfitRate") {
           item = "targetProfitRate";
           if (rowData[item] >= 0) {
             return (
@@ -48,7 +47,7 @@ const Table = ({ nodes, header }) => {
               {rowData[item]}%
             </Blue>
           );
-        } else if (item === "현재수익률") {
+        } else if (item === "현재수익률" || item === "currentProfitRate") {
           item = "currentProfitRate";
           if (rowData[item] >= 0) {
             return (
@@ -62,7 +61,7 @@ const Table = ({ nodes, header }) => {
               {rowData[item]}%
             </Blue>
           );
-        } else if (item.includes("자산총액")) {
+        } else if (item === "자산총액" || item === "currentAsset") {
           item = "currentAsset";
           return (
             <Name onClick={() => handleRowClick(rowData)}>
@@ -83,19 +82,34 @@ const Table = ({ nodes, header }) => {
               </Name>
             </AccountContainer>
           );
-        } else if (item === "이메일") {
+        } else if (item === "이메일" || item === "email") {
           item = "email";
-          return <Name>{rowData[item]}</Name>;
-        } else if (item === "전화번호") {
+          return (
+            <Name onClick={() => handleRowClick(rowData)}>{rowData[item]}</Name>
+          );
+        } else if (item === "전화번호" || item === "phone") {
           item = "phone";
-          return <Name>{rowData[item]}</Name>;
+          return (
+            <Name onClick={() => handleRowClick(rowData)}>{rowData[item]}</Name>
+          );
         } else if (item === "총자산" || item === "totalAssets") {
           item = "totalAssets";
           return <Name>{rowData[item]}원</Name>;
         } else if (item === "출금가능금액" || item === "withdrawalAmount") {
           item = "withdrawalAmount";
-
+          return <Name>{rowData[item]}원</Name>;
+        } else if (item === "종목코드" || item === "code") {
+          item = "code";
           return <Name>{rowData[item]}</Name>;
+        } else if (item === "종목명" || item === "name") {
+          item = "name";
+          return <Name>{rowData[item]}</Name>;
+        } else if (item === "투자수량" || item === "amount") {
+          item = "amount";
+          return <Name>{rowData[item]}주</Name>;
+        } else if (item === "평가금액" || item === "price") {
+          item = "price";
+          return <Name>{rowData[item]}원</Name>;
         }
 
         return (
