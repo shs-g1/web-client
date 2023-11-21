@@ -8,7 +8,7 @@ const getRandomNumber = () => {
   // Math.random()은 0 이상 1 미만의 난수를 생성
   // 여기에 30을 곱하면 0 이상 30 미만의 난수를 얻을 수 있음
   // 15를 뺌으로써 -15 이상 15 미만의 범위를 얻음
-  return Math.random() * 30 - 15;
+  return (Math.random() * 30 - 15).toFixed(2);
 };
 
 // Td 컴포넌트에서 사용할 랜덤한 숫자
@@ -44,13 +44,13 @@ const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
           <Tbody key={index}>
             <Tr onClick={() => onRowClick(tableData, index)}>
               <Td>{portfolioName}</Td>
-              <Td>{tableData.principals[index]}원</Td>
-              <Td>{tableData.returns[index]}원</Td>
+              <Td>{tableData.principals[index].toLocaleString()}원</Td>
+              <Td>{tableData.returns[index].toLocaleString()}원</Td>
             </Tr>
             <Tr>
               <Td>{tableData.cumulativeRORs[index]}%</Td>
               <Td>{tableData.durations[index]}</Td>
-              <Td>{randomValues[index]}</Td>
+              <Td>{randomValues[index]}%</Td>
             </Tr>
           </Tbody>
         ))}
