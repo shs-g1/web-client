@@ -91,7 +91,7 @@ const AtomSpecializationInput = ({ onUpdate, attribute, required }) => {
     <div>
       <Text>
         {required && <Required>*</Required>}전문 분야
-        <Span>( 최대 3개까지 입력해주세요)</Span>
+        <Span> (최대 3개까지 입력해주세요)</Span>
       </Text>
       <ButtonContainer>
         {Object.keys(buttonStates).map((button) => (

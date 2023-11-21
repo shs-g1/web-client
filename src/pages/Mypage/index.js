@@ -58,6 +58,21 @@ const Mypage = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    const requiredFields = [
+      "name",
+      "phoneNumber",
+      "email",
+      "careerList",
+      "educationList",
+      "specializationList",
+    ];
+    const missingFields = requiredFields.filter((field) => !formState[field]);
+
+    if (missingFields.length > 0) {
+      alert(`필수 항목을 채워주세요: ${missingFields.join(", ")}`);
+      return;
+    }
+
     // console.log(formState.name); // DEBUG
 
     try {
