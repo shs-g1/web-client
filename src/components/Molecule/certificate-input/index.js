@@ -103,6 +103,7 @@ const MoleculeCertificateInput = ({ onUpdate, attribute }) => {
           <AtomPartInput
             placeholder={"yyyy-mm-dd"}
             value={certificate.acquisitionDate}
+            width={"150px"}
             onChange={(value) =>
               handleInputChange(index, "acquisitionDate", value)
             }

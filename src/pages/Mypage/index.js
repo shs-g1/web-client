@@ -10,8 +10,11 @@ import MoleculeCertificateInput from "../../components/Molecule/certificate-inpu
 import AtomIntroductionInput from "../../components/Atom/introduction-input";
 import AtomSpecializationInput from "../../components/Atom/specialization-input";
 import { MainContainer } from "../Main/styled";
+import Modal from "react-modal";
+import { instance } from "../../apis";
 
 import styled from "styled-components";
+import { ModalButton } from "../../components/Atom/Calendar/styled";
 
 const SubmitButton = styled.button`
   width: 200px;
@@ -29,12 +32,39 @@ const SubmitButton = styled.button`
   }
 `;
 
+const Text = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+`;
+
 const RightContainer = styled.div`
   display: flex;
   justify-content: center;
 `;
 
+const QRContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Image = styled.img``;
+
+const Span = styled.button`
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 5px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #eaeff6;
+  color: #000;
+`;
+
 const Mypage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
+
   const pbName = localStorage.getItem("pbName");
   const [formState, setFormState] = useState({
     name: "",
@@ -88,11 +118,35 @@ const Mypage = () => {
 
       if (response.ok) {
         console.log("submit success");
+        getQr();
       } else {
         console.error("폼 제출 중 오류 발생");
       }
     } catch (error) {
       console.error("통신 오류:", error);
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  /*QR*/
+  const getQr = async () => {
+    try {
+      const pbId = localStorage.getItem("pbId");
+      const response = await instance.get(`/api/qr/${pbId}`, {
+        responseType: "arraybuffer", // 이진 데이터로 요청
+      });
+
+      const blob = new Blob([response.data], { type: "image/png" }); // 형식에 맞게 Blob 생성
+
+      const imageUrl = URL.createObjectURL(blob); // Blob을 URL로 변환
+
+      setIsModalOpen(true);
+      setImageUrl(imageUrl);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -114,7 +168,7 @@ const Mypage = () => {
               />
               <AtomPlainInput
                 title={"전화번호"}
-                placeholder={"전화번호"}
+                placeholder={"010-xxxx-xxxx"}
                 required={true}
                 width={"310px"}
                 onUpdate={handleInputChange}
@@ -171,6 +225,47 @@ const Mypage = () => {
             <SubmitButton onClick={handleFormSubmit}>수정</SubmitButton>
           </RightContainer>
         </MainContainer>
+
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          contentLabel="QR"
+          style={{
+            overlay: {
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              zIndex: 1000,
+            },
+            content: {
+              width: "100%",
+              maxWidth: "300px",
+              height: "300px",
+              margin: "auto",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "white",
+              padding: "20px",
+              borderRadius: "20px",
+              boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+            },
+          }}
+        >
+          {imageUrl && (
+            <QRContainer>
+              <Text>QR CODE</Text>
+              <Image
+                src={imageUrl}
+                alt="Fetched Image"
+                style={{ maxWidth: "100%", maxHeight: "100%" }}
+              />
+              <Span>
+                <a href={imageUrl} download="qrcode.png">
+                  QR 다운로드
+                </a>
+              </Span>
+              <ModalButton onClick={closeModal}>닫기</ModalButton>
+            </QRContainer>
+          )}
+        </Modal>
       </Container>
     </>
   );
