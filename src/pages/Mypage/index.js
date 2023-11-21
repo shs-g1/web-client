@@ -10,7 +10,6 @@ import MoleculeCertificateInput from "../../components/Molecule/certificate-inpu
 import AtomIntroductionInput from "../../components/Atom/introduction-input";
 import AtomSpecializationInput from "../../components/Atom/specialization-input";
 import { MainContainer } from "../Main/styled";
-
 import Modal from "react-modal";
 import { instance } from "../../apis";
 
@@ -120,7 +119,6 @@ const Mypage = () => {
       if (response.ok) {
         console.log("submit success");
         getQr();
-
       } else {
         console.error("폼 제출 중 오류 발생");
       }
@@ -149,7 +147,6 @@ const Mypage = () => {
       setImageUrl(imageUrl);
     } catch (error) {
       console.error(error);
-
     }
   };
 
@@ -172,7 +169,6 @@ const Mypage = () => {
               <AtomPlainInput
                 title={"전화번호"}
                 placeholder={"010-xxxx-xxxx"}
-
                 required={true}
                 width={"310px"}
                 onUpdate={handleInputChange}
@@ -230,7 +226,6 @@ const Mypage = () => {
           </RightContainer>
         </MainContainer>
 
-
         <Modal
           isOpen={isModalOpen}
           onRequestClose={closeModal}
@@ -271,7 +266,6 @@ const Mypage = () => {
             </QRContainer>
           )}
         </Modal>
-
       </Container>
     </>
   );

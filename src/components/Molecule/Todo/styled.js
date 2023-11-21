@@ -2,8 +2,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 230px;
-  height: 320px;
+  width: 15vw;
+  height: 40vh;
   flex-shrink: 0;
   border-radius: 20px;
   background: #eaeff6;
@@ -70,4 +70,3 @@ export const Time = styled.li`
   font-weight: 500;
   margin-right: 5px;
 `;
-

@@ -9,6 +9,18 @@ import {
 } from "chart.js";
 
 const LineChart = ({ data }) => {
+  const imsiData = [
+    {
+      labels: [9, 10, 11, 12],
+      profitRates: [
+        -11.0, 1.1235955056179776, -15.555555555555555, 18.421052631578945,
+      ],
+    },
+    {
+      labels: [9, 10, 11, 12],
+      profitRates: [0.0, 0.0, 0.0, 0.0],
+    },
+  ];
   const chartRef = useRef(null);
   let chartInstance = null;
   console.log(data, "data2");

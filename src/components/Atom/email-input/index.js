@@ -72,10 +72,7 @@ const AtomEmailInput = ({ onUpdate, attribute, width, required }) => {
         <Input
           className="box"
           type="text"
-
           value={selectedDomain === "type" ? localPart : `${selectedDomain}`}
-
-
           placeholder="도메인을 선택해주세요"
           disabled={!inputEnabled}
         />
