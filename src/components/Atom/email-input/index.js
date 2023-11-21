@@ -86,7 +86,7 @@ const AtomEmailInput = ({ onUpdate, attribute, width, required }) => {
           value={selectedDomain}
         >
           <Option value="" disabled>
-            Select a domain
+            도메인을 선택해주세요
           </Option>
           {domains.map((domain) => (
             <Option key={domain} value={domain}>
