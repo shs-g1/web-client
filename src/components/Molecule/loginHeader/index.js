@@ -1,9 +1,10 @@
-import { Container, Image } from "./styled";
-import HeaderImage from "../../../assets/images/headerImg.png";
+import { Container, Image, Text } from "./styled";
+import Header from "../../../assets/images/header.png";
 const LoginHeader = ({ width }) => {
   return (
     <Container width={width}>
-      <Image src={HeaderImage} alt="header" />
+      <Image src={Header} alt="header" />
+      <Text>SHINHAN</Text>
     </Container>
   );
 };
