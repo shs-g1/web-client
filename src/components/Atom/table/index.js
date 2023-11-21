@@ -16,21 +16,24 @@ const Table = ({ nodes, header }) => {
 
   const handleRowClick = (rowData) => {
     const id = rowData.id;
-    navigate(`/management/${id}`, { state: { rowData } });
+    navigate(`/management/${id}`);
   };
 
   const COLUMNS = header.map((item) => {
     return {
       label: item,
       renderCell: (rowData) => {
+        console.log(rowData);
         if (item === "이름") {
+          item = "nameAndProfile";
           return (
             <NameContainer onClick={() => handleRowClick(rowData)}>
-              <Image src={rowData[item][0]} alt="고객 이미지" />
-              <Name>{rowData[item][1]}</Name>
+              {/*<Image src={rowData[item][0]} alt="고객 이미지" />*/}
+              <Name>{rowData[item][0]}</Name>
             </NameContainer>
           );
-        } else if (item.includes("수익률")) {
+        } else if (item === "목표수익률") {
+          item = "targetProfitRate";
           if (rowData[item] >= 0) {
             return (
               <Red onClick={() => handleRowClick(rowData)}>
@@ -43,7 +46,28 @@ const Table = ({ nodes, header }) => {
               {rowData[item]}%
             </Blue>
           );
-        } else if (item.includes("자산") || item.includes("금액")) {
+        } else if (item === "현재수익률") {
+          item = "currentProfitRate";
+          if (rowData[item] >= 0) {
+            return (
+              <Red onClick={() => handleRowClick(rowData)}>
+                {rowData[item]}%
+              </Red>
+            );
+          }
+          return (
+            <Blue onClick={() => handleRowClick(rowData)}>
+              {rowData[item]}%
+            </Blue>
+          );
+        } else if (item.includes("자산총액")) {
+          item = "currentAsset";
+          return (
+            <Name onClick={() => handleRowClick(rowData)}>
+              {rowData[item]}원
+            </Name>
+          );
+        } else if (item.includes("금액")) {
           return (
             <Name onClick={() => handleRowClick(rowData)}>
               {rowData[item]}원
@@ -62,6 +86,12 @@ const Table = ({ nodes, header }) => {
               </Name>
             </AccountContainer>
           );
+        } else if (item === "이메일") {
+          item = "email";
+          return <Name>{rowData[item]}</Name>;
+        } else if (item === "전화번호") {
+          item = "phone";
+          return <Name>{rowData[item]}원</Name>;
         }
 
         return (
@@ -72,8 +102,6 @@ const Table = ({ nodes, header }) => {
   });
 
   const data = { nodes };
-  console.log(data);
-
   return (
     <Style>
       <CompactTable columns={COLUMNS} data={data} />

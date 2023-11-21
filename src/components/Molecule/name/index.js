@@ -1,25 +1,28 @@
 // components/Molecule/name/index.js
 
 import React, { useEffect, useState } from "react";
-import AtomName from "../../Atom/name/index.js"
-import { MoleculeNameContainer } from "./styled";
+import AtomName from "../../Atom/name/index.js";
+import { MoleculeNameContainer, Text } from "./styled";
 
 const MolculeName = () => {
-    const [fullName, setFullname] = useState('홍박사');
+  const [fullName, setFullname] = useState("SOL");
 
-    useEffect(() => {
-        fetch("api/name") // TODO : api 호출
-            .then((response) => response.json())
-            .then((result) => setFullname(result))
-            .catch((error) => console.error('Error fetching introduction data:', error))
-    }, []);
+  useEffect(() => {
+    fetch("api/name") // TODO : api 호출
+      .then((response) => response.json())
+      .then((result) => setFullname(result))
+      .catch((error) =>
+        console.error("Error fetching introduction data:", error)
+      );
+  }, []);
 
-    // TODO: 고객문구 지속적으로 변경하는 함수 추가
-    return (
-        <MoleculeNameContainer>
-            진심으로 고객을 위하는 PB<AtomName fullName={fullName} /> 입니다.
-        </MoleculeNameContainer>
-    )
-}
+  // TODO: 고객문구 지속적으로 변경하는 함수 추가
+  return (
+    <MoleculeNameContainer>
+      <Text>진심으로 고객을 위하는</Text>
+      <AtomName fullName={"PB " + fullName} />
+    </MoleculeNameContainer>
+  );
+};
 
-export default MolculeName
+export default MolculeName;

@@ -1,8 +1,13 @@
 import axios from "axios";
 
-export default axios.create({
-  baseURL: "http://localhost:5000",
-  header: {
-    Authorization: "bearer accessKey",
+const { REACT_APP_SERVER_PORT } = process.env;
+console.log("REACT_APP_SERVER_PORT", REACT_APP_SERVER_PORT);
+
+export const instance = axios.create({
+  baseURL: `http://${process.env.REACT_APP_SERVER_PORT}`,
+  withCredentials: true,
+  timeout: 20000,
+  headers: {
+    "Content-Type": "application/json",
   },
 });
