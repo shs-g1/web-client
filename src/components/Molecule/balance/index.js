@@ -29,6 +29,7 @@ const Balance = forwardRef((data, ref) => {
   //     price: "1000000",
   //   },
   // ];
+
   return (
     <Container ref={ref}>
       <SubTitle subTitle="잔고/체결내역"></SubTitle>
