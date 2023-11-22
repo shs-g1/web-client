@@ -67,6 +67,7 @@ const Mypage = () => {
 
   const pbName = localStorage.getItem("pbName");
   const [formState, setFormState] = useState({
+    pbId: "",
     name: "",
     phoneNumber: "",
     imageUrl: "",
