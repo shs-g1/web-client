@@ -24,6 +24,7 @@ const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
     durations: content.durations, // 기간
   };
 
+  // 누적 수익률 소수점 2자리 까지 보이게 수정
   return (
     <Container>
       <Title>{title}</Title>
@@ -48,7 +49,7 @@ const AtomPBPortfolioTable = ({ title, content, onRowClick }) => {
               <Td>{tableData.returns[index].toLocaleString()}원</Td>
             </Tr>
             <Tr>
-              <Td>{tableData.cumulativeRORs[index]}%</Td>
+              <Td>{tableData.cumulativeRORs[index].toFixed(2)}%</Td>
               <Td>{tableData.durations[index]}</Td>
               <Td>{randomValues[index]}%</Td>
             </Tr>

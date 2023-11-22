@@ -28,9 +28,9 @@ const AtomPBPortfolioTableModal = ({ portfolioData }) => {
             <Tr key={index}>
               <Td>{label}</Td>
               <Td>{tableData.productNames[index]}</Td>
-              <Td>{tableData.accumRoRs[index]}%</Td>
+              <Td>{tableData.accumRoRs[index].toFixed(2)}%</Td>
               <Td>{tableData.durations[index]}</Td>
-              <Td>{tableData.ratios[index]}%</Td>
+              <Td>{tableData.ratios[index].toFixed(2)}%</Td>
             </Tr>
           ))}
         </Tbody>
