@@ -1,6 +1,6 @@
 // components/Atom/email-input/index.js
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   FlexEmail,
@@ -11,23 +11,22 @@ import {
   Div,
   Select,
   Option,
-  SaveButton,
 } from "./styled";
 const AtomEmailInput = ({ onUpdate, attribute, width, required }) => {
   const [localPart, setLocalPart] = useState("");
   const [selectedDomain, setSelectedDomain] = useState("");
+  const [email, setEmail] = useState("");
   const [inputEnabled, setInputEnabled] = useState(false);
   const domains = [
+    "shinhan.com",
     "naver.com",
     "google.com",
     "hanmail.net",
+    "daum.net",
     "nate.com",
     "kakao.com",
-    "shinhan.com",
   ];
-  const [isModalOpen, setModalOpen] = useState(false);
 
-  // TODO: 저장 확인 모달창 구현
   const handleDomainChange = (e) => {
     const value = e.target.value; // select된 요소의 value
     // If the selected value is 'type', enable input and clear custom domain input
@@ -38,23 +37,28 @@ const AtomEmailInput = ({ onUpdate, attribute, width, required }) => {
     }
 
     setSelectedDomain(value);
-    updateParentEmail();
+    setEmail(`${localPart}@${selectedDomain === "type" ? "" : selectedDomain}`);
+    onUpdate(attribute, email);
+    console.log('도메인 설정!');
+    console.log(email);
   };
 
   const handleLocalPartChange = (e) => {
     setLocalPart(e.target.value);
-    updateParentEmail();
-  };
-
-  const updateParentEmail = () => {
-    const email = `${localPart}@${
-      selectedDomain === "type" ? "" : selectedDomain
-    }`;
+    setEmail(`${localPart}@${selectedDomain === "type" ? "" : selectedDomain}`);
     onUpdate(attribute, email);
+    console.log('localpart 설정!');
     console.log(email);
-
-    setModalOpen(true); // 저장되었다는 모달 열기
   };
+
+  useEffect(() => {
+    // Update email when both localPart and selectedDomain are changed
+    if (localPart && selectedDomain) {
+      setEmail(`${localPart}@${selectedDomain === "type" ? "" : selectedDomain}`);
+      onUpdate(attribute, email);
+      console.log(email);
+    }
+  }, [localPart, selectedDomain]);
 
   return (
     <Container>
@@ -94,7 +98,6 @@ const AtomEmailInput = ({ onUpdate, attribute, width, required }) => {
           <Option value="type">직접 입력</Option>
         </Select>
       </Div>
-      <SaveButton onClick={updateParentEmail}>임시 저장</SaveButton>
     </Container>
   );
 };

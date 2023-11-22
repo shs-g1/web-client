@@ -108,7 +108,7 @@ const Mypage = () => {
 
     try {
       // TODO: 제출 url 변경
-      const response = await fetch(`http://133.186.218.115/form`, {
+      const response = await fetch("http://133.186.218.115/form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
