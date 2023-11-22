@@ -64,9 +64,10 @@ const Span = styled.button`
 const Mypage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
-
+  const pbId = localStorage.getItem("pbId") || 1;
   const pbName = localStorage.getItem("pbName");
   const [formState, setFormState] = useState({
+    id: pbId,
     name: "",
     phoneNumber: "",
     imageUrl: "",
@@ -107,14 +108,14 @@ const Mypage = () => {
 
     try {
       // TODO: 제출 url 변경
-      const response = await fetch("http://133.186.218.115/form", {
-        method: 'POST',
+      const response = await fetch(`http://133.186.218.115/form`, {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "http://localhost:3000",
         },
         body: JSON.stringify(formState),
-        credentials: 'include'
+        credentials: "include",
       });
 
       if (response.ok) {
@@ -135,7 +136,6 @@ const Mypage = () => {
   /*QR*/
   const getQr = async () => {
     try {
-      const pbId = localStorage.getItem("pbId");
       const response = await instance.get(`/api/qr/${pbId}`, {
         responseType: "arraybuffer", // 이진 데이터로 요청
       });

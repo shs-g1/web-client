@@ -5,7 +5,8 @@ const Balance = forwardRef((data, ref) => {
   const tableHeader = ["종목코드", "종목명", "투자수량", "평가금액"];
   console.log(data.data[0].transactionDtoList, "whdahr");
   const jusikData = data.data[0].transactionDtoList;
-
+  // const chaegwonData = data.data[1].transactionDtoList;
+  // const pasaengData = data.data[2].transactionDtoList;
   const chaegwonData = [
     {
       code: "R6003492DB8",
