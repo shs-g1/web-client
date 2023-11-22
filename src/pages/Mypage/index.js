@@ -64,10 +64,10 @@ const Span = styled.button`
 const Mypage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
-
+  const pbId = localStorage.getItem("pbId") || 1;
   const pbName = localStorage.getItem("pbName");
   const [formState, setFormState] = useState({
-    pbId: "",
+    id: pbId,
     name: "",
     phoneNumber: "",
     imageUrl: "",
@@ -136,7 +136,6 @@ const Mypage = () => {
   /*QR*/
   const getQr = async () => {
     try {
-      const pbId = localStorage.getItem("pbId");
       const response = await instance.get(`/api/qr/${pbId}`, {
         responseType: "arraybuffer", // 이진 데이터로 요청
       });
