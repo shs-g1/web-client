@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+## 📄  **서비스 내용**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Private Banker를 위한 고객 및 이력관리 서비스입니다. 위 서비스에서 제공하는 핵심 기능 3가지입니다. 
 
-## Available Scripts
+1. 고객 정보 관리 - 각 고객에 대한 상세 페이지를 제공하여 포트폴리오, 수익률, 계좌 자산 등을 확인.
+2. 캘린더 일정 관리 - 고객과의 미팅 및 상담 일정 관리
+3. QR 코드 생성 및 다운로드 - PB의 정보 페이지를 QR 코드로 생성하고 명함에 붙이는 등 자신을 소개할 수 있음. 
 
-In the project directory, you can run:
+## **🛠 기술 스택**
 
-### `npm start`
+- **Front-end**: React js, styled component
+- **Back-end**: Springboot
+- **Infra & CI/CD**: Docker, NHN Cloud
+- **Tool**: Notion, Slack, Github
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 👥 **서비스 소개**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+작업 공간
 
-### `npm test`
+- 고객과의 상담 일정 및 개인 일정을 추가하고 확인할 수 있는 공간입니다.
+- 고객 리스트로 고객의 기본 정보들을 파악할 수 있습니다.
+<img width="1186" alt="image" src="https://github.com/shs-g1/web-client/assets/95170874/c59867f6-186b-42f9-a6b1-bd2aab534758">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+고객 관리
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 개별 고객을 관리할 수 있는 페이지입니다.
+- 계좌별 수익률과 잔고, 체결 내역을 확인할 수 있습니다.
+<img width="1177" alt="image" src="https://github.com/shs-g1/web-client/assets/95170874/14aa0b8a-3d20-4445-9d0c-ff86c232371c">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+내 정보 수정
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- PB의 정보를 수정할 수 있는 페이지입니다.
+- 등록하기 버튼을 통해 자신의 정보를 담은 qrcode를 얻을 수 있습니다.
+<img width="1043" alt="image" src="https://github.com/shs-g1/web-client/assets/95170874/8a2a429c-99c9-44b7-a1c8-bcd1833f22a3">
 
-### `npm run eject`
+pb 소개 페이지(고객용)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- qrcode를 스캔 했을 때 나타나는 모바일 페이지입니다.
+- pb가 입력한 정보 뿐만 아니라 pb가 소속된 회사에서 받아온 정보들을 토대로 고객에게 보여줍니다.
+<img width="1047" alt="image" src="https://github.com/shs-g1/web-client/assets/95170874/af6e893d-76e1-499f-98a4-656afbeeeca9">
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## **🌟 서비스 기대 효과 & 사업 확장성**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+PB들에게는 자신의 포트폴리오와 이력을 명함에 붙이거나 이력서 사이트를 제공함으로써 새로운 영업 환경과 기회를 제공하고 개인투자자들도 상대적으로 접근성이 좋지 않았던 PB에게 좀 더 쉽게 접근하고 새로운 투자상품을 추천받고 통합 자산관리 서비스를 받을 수 있습니다.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+PB에게는 고객과 일정 관리를 할 수 있는 페이지를 제공함으로써 맞춤형 서비스를 제공하도록 도울 수 있습니다.
